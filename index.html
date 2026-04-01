@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAPC 2027 | National Aerospace Propulsion Conference</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        .sticky-nav {
+            backdrop-filter: blur(8px);
+            background-color: rgba(15, 23, 42, 0.9);
+        }
+
+        .vertical-pill {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 sticky-nav text-white border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="bg-blue-600 p-2 rounded-lg">
+                        <i class="fas fa-rocket text-xl"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight uppercase">NAPC 2027</span>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#about" class="hover:text-blue-400 transition">About</a>
+                    <a href="#scope" class="hover:text-blue-400 transition">Scope</a>
+                    <a href="#dates" class="hover:text-blue-400 transition">Dates</a>
+                    <a href="#verticals" class="hover:text-blue-400 transition">Verticals</a>
+                    <a href="#committee" class="hover:text-blue-400 transition">Committee</a>
+                </div>
+                <button class="md:hidden text-2xl" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 px-4 pt-2 pb-6 space-y-2 border-t border-slate-800">
+            <a href="#about" class="block py-2 text-slate-300">About</a>
+            <a href="#scope" class="block py-2 text-slate-300">Scope</a>
+            <a href="#dates" class="block py-2 text-slate-300">Dates</a>
+            <a href="#verticals" class="block py-2 text-slate-300">Verticals</a>
+            <a href="#committee" class="block py-2 text-slate-300">Committee</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient text-white py-20 lg:py-32 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 L100 0 L100 100 Z" fill="currentColor"></path>
+            </svg>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <h2 class="text-blue-400 font-semibold tracking-widest uppercase mb-4">6th National Aerospace Propulsion Conference</h2>
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                    Emerging Technologies and Systems in <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Aerospace Propulsion</span>
+                </h1>
+                <p class="text-xl text-slate-300 mb-10 leading-relaxed">
+                    Hosted by the Department of Mechanical & Aerospace Engineering, <br class="hidden md:block"> IIT Hyderabad in collaboration with NCABE.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="bg-slate-800/50 px-6 py-3 rounded-full border border-slate-700 flex items-center">
+                        <i class="far fa-calendar-alt mr-3 text-blue-400"></i>
+                        3-5 January 2027
+                    </div>
+                    <div class="bg-slate-800/50 px-6 py-3 rounded-full border border-slate-700 flex items-center">
+                        <i class="fas fa-map-marker-alt mr-3 text-blue-400"></i>
+                        IIT Hyderabad
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 text-slate-900 border-l-4 border-blue-600 pl-4">About NAPC-2027</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        <!-- NAPC-2027 is the sixth edition of this prestigious conference, dedicated to advancing the frontiers of aerospace propulsion. It brings together experts, researchers, startups and professionals from the propulsion community to share insights, discuss advancements, and foster collaboration. -->
+                         NAPC-2027 is the sixth edition of this
+prestigious conference, dedicated to
+advancing the frontiers of aerospace
+propulsion. It brings together experts,
+researchers, startups and professionals
+from the propulsion community to share
+insights, discuss advancements, and
+foster collaboration.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="p-4 bg-slate-50 rounded-xl">
+                            <h4 class="font-bold text-blue-600">Organized by</h4>
+                            <p class="text-sm text-slate-600">MAE Department, IIT Hyderabad</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl">
+                            <h4 class="font-bold text-blue-600">Under Auspices of</h4>
+                            <p class="text-sm text-slate-600">NCABE & GTRE, Bangalore</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-100 rounded-3xl p-8 border border-slate-200">
+                    <h3 class="text-2xl font-bold mb-4 text-slate-900">About IITH and MAE</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        <!-- The department was envisioned as a Mechanical and Aerospace Department to leverage the strengths of both the disciplines and to support the many Aerospace industries in the Telangana region. -->
+                         The department was envisioned as a
+Mechanical and Aerospace Department
+to leverage the strengths of both the
+disciplines and to support the many
+Aerospace industries in the Telangana
+region. Under able and visionary
+leadership and with the support of both
+young and experienced faculty
+members and staff forming its core
+competency, the department has grown
+significantly. With a focus on
+interdisciplinary research and teaching,
+we are actively involved in unique
+undergraduate and graduate programs
+such as B.Tech programs in
+Computational Mechanics, and
+Engineering Sciences as well as M.Tech
+programs in Additive Manufacturing,
+Smart Mobility, Ophthalmic Engineering,
+Polymers and Biosystems, Integrated
+Sensors System, Integrated Circuits and
+Microsystem Packaging.
+                    </p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        With a focus on interdisciplinary research and teaching, we are involved in unique programs such as B.Tech in Computational Mechanics and Engineering Sciences, and M.Tech in Additive Manufacturing, Smart Mobility, and Integrated Sensors.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scope / Session Titles -->
+    <section id="scope" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-bold mb-4">Conference Scope</h3>
+                <!-- <p class="text-slate-600 max-w-2xl mx-auto">A unifying platform for the entire propulsion community, encompassing both air-breathing and non-air-breathing technologies.</p> -->
+                 <p class="text-slate-600 max-w-2xl mx-auto">The NAPC-2027 serves as a unifying platform for the entire propulsion community, encompassing both air breathing and non-air-breathing propulsion technologies. This conference provides an invaluable opportunity to showcase research and development activities, engage with peers, and cultivate future collaborations through networking.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Topics Loop -->
+                <div class="p-4 bg-white rounded-xl shadow-sm border border-slate-200 card-hover flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span class="text-sm font-medium">Gas Turbines</span>
+                </div>
+                <div class="p-4 bg-white rounded-xl shadow-sm border border-slate-200 card-hover flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span class="text-sm font-medium">Solid Propulsion</span>
+                </div>
+                <div class="p-4 bg-white rounded-xl shadow-sm border border-slate-200 card-hover flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span class="text-sm font-medium">Liquid Propulsion</span>
+                </div>
+                <div class="p-4 bg-white rounded-xl shadow-sm border border-slate-200 card-hover flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span class="text-sm font-medium">Supersonic Combustion</span>
+                </div>
+                <div class="p-4 bg-white rounded-xl shadow-sm border border-slate-200 card-hover flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span class="text-sm font-medium">Electric Propulsion</span>
+                </div>
+                <div class="p-4 bg-white rounded-xl shadow-sm border border-slate-200 card-hover flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span class="text-sm font-medium">Turbo Machinery</span>
+                </div>
+                <div class="p-4 bg-white rounded-xl shadow-sm border border-slate-200 card-hover flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span class="text-sm font-medium">Fuel Injection & Sprays</span>
+                </div>
+                <div class="p-4 bg-white rounded-xl shadow-sm border border-slate-200 card-hover flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span class="text-sm font-medium">Startup R&D</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verticals -->
+    <section id="verticals" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold mb-12 text-center">Core Verticals</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Gas Turbine -->
+                <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50 card-hover">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-fan text-xl"></i>
+                    </div>
+                    <h4 class="font-bold mb-3 text-lg">Gas Turbine Propulsion</h4>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        
+                        <li>• Turbo-machinery (Compressors/Fans and Turbines)</li>
+                        <li>• Combustors</li>
+                        <li>• Intakes and Nozzles</li>
+                        <li>• Rotor Dynamics</li>
+                        <li>• Heat Transfer</li>
+                        <li>• Sustainable Aviation Fuels (SAF)</li>
+                        <li>• Combustion dynamics</li>
+
+                    </ul>
+                </div>
+                <!-- Rocket -->
+                <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50 card-hover">
+                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-rocket text-xl"></i>
+                    </div>
+                    <h4 class="font-bold mb-3 text-lg">Rocket Propulsion</h4>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li>• Solid propulsion</li>
+                        <li>• Liquid propulsion</li>
+                        <li>• Hybrid propulsion</li>
+                        <li>• Electric propulsion</li>
+                        <li>• Green propulsion</li>
+                        <li>• Combustion</li>
+                        <li>• Heat Transfer</li>
+                        <li>• Propellants</li>
+                        <li>• Combustion dynamics</li>
+
+                    </ul>
+                </div>
+                <!-- Highspeed -->
+                <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50 card-hover">
+                    <div class="w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-bolt text-xl"></i>
+                    </div>
+                    <h4 class="font-bold mb-3 text-lg">Highspeed Propulsion (Ram/Scram)</h4>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li>• Intakes</li>
+                        <li>• Combustors</li>
+                        <li>• Nozzles</li>
+                        <li>• Heat Transfer</li>
+                        <li>• Fuels</li>
+
+                    </ul>
+                </div>
+                <!-- Special -->
+                <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50 card-hover">
+                    <div class="w-12 h-12 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-microchip text-xl"></i>
+                    </div>
+                    <h4 class="font-bold mb-3 text-lg">Other propulsion concepts</h4>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li>• Electric motors, Fans, blades, ducts</li>
+                        <li>• Tilt/VTOL concepts, Distributed propulsion, Control of electric vehicles</li>
+                        <li>• Hybrid propulsion devices like RBCC, TBCC, Ramjet assisted rockets, GT-electric, etc</li>
+                        <li>• Space propulsion</li>
+                        <li>• Propulsion in other environments</li>
+
+                    </ul>
+                </div>
+
+
+                <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50 card-hover">
+                    <div class="w-12 h-12 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-microchip text-xl"></i>
+                    </div>
+                    <h4 class="font-bold mb-3 text-lg">Related Special Topics:</h4>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li>• Allied Applications of Gas-Turbine Engines</li>
+                        <li>• Thermo-Structural/Vibration Analyses</li>
+                        <li>• Ground and Flight Testing</li>
+                        <li>• Advanced Diagnostics and Instrumentation</li>
+                        <li>• Computational Simulations and Modeling for propulsion applications</li>
+                        <li>• AI/ML in propulsion/combustion</li>
+                        <li>• Advanced manufacturing for propulsion applications</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Dates -->
+    <section id="dates" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto">
+                <h3 class="text-3xl font-bold mb-12 text-center">Important Dates (Tentative)</h3>
+                <div class="space-y-6">
+                    <div class="flex justify-between items-center border-b border-slate-700 pb-4">
+                        <span class="text-slate-400">Abstract Submission Deadline</span>
+                        <span class="font-bold text-blue-400">17th June 2026</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-slate-700 pb-4">
+                        <span class="text-slate-400">Communication of Abstract Acceptance</span>
+                        <span class="font-bold text-blue-400">10th July 2026</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-slate-700 pb-4">
+                        <span class="text-slate-400">Submission of Full-length Paper</span>
+                        <span class="font-bold text-blue-400">15th Sept 2026</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-slate-700 pb-4">
+                        <span class="text-slate-400">Communication of Full-paper Acceptance</span>
+                        <span class="font-bold text-blue-400">15th Nov 2026</span>
+                    </div>
+                    <div class="flex justify-between items-center pb-4">
+                        <span class="text-slate-400">Camera-ready Manuscript</span>
+                        <span class="font-bold text-blue-400">15th Dec 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Committee Section -->
+    <section id="committee" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold mb-16 text-center">Committees</h3>
+            
+            <div class="mb-16">
+                <h4 class="text-2xl font-bold mb-8 text-blue-600 border-b-2 border-blue-100 pb-2">National Advisory Committee</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                   <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="font-bold">Director, IIT Hyderabad</p>
+                        <p class="text-xs text-slate-500">IITH</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="font-bold">HoD, MAE IIT Hyderabad</p>
+                        <p class="text-xs text-slate-500">IITH</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="font-bold">Prof. Raghunandan BN</p>
+                        <p class="text-xs text-slate-500">Chairman, NCABE</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="font-bold">G Sivaramakrishna</p>
+                        <p class="text-xs text-slate-500">GTRE, General Secretary, NCABE</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="font-bold">Kishore Kumar</p>
+                        <p class="text-xs text-slate-500">GTRE, Vice-Chairman, NCABE</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="font-bold">Prof. S.R. Chakravarthy</p>
+                        <p class="text-xs text-slate-500">IIT Madras</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="font-bold">Prof. T M Muruganandam</p>
+                        <p class="text-xs text-slate-500">IIT Madras</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="font-bold">Dr. B S Subash Chandran</p>
+                        <p class="text-xs text-slate-500">Propulsion Panel, AR&DB</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="font-bold">Dr. V Venkateswararao</p>
+                        <p class="text-xs text-slate-500">DIA-COE, IIT Bombay</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="font-bold">Dr. Ramaguru</p>
+                        <p class="text-xs text-slate-500">DIA-COE, IITH</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="font-bold">Dr. S V Ramanamurthy</p>
+                        <p class="text-xs text-slate-500">Director, GTRE</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="font-bold">Shri G A Srinivasa Murthy</p>
+                        <p class="text-xs text-slate-500">Director, DRDL</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="font-bold">Dr. Unnikrishnan Nair</p>
+                        <p class="text-xs text-slate-500">Director, VSSC, ISRO</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-lg">
+                        <p class="font-bold">Dr. Kishore Kumar</p>
+                        <p class="text-xs text-slate-500">NSTL, DRDO</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-2xl font-bold mb-8 text-blue-600 border-b-2 border-blue-100 pb-2">Local Organizing Committee (IIT Hyderabad)</h4>
+                <div class="flex flex-wrap gap-4">
+                    <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-semibold text-slate-700 shadow-sm">Prof. Raja Banerjee</span>
+                    <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-semibold text-slate-700 shadow-sm">Prof. Saravanan B</span>
+                    <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-semibold text-slate-700 shadow-sm">Prof. Pankaj Kolhe</span>
+                    <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-semibold text-slate-700 shadow-sm">Dr. Sayak Banerjee</span>
+                    <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-semibold text-slate-700 shadow-sm">Dr. Lakshmana Chandrala</span>
+                    <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-semibold text-slate-700 shadow-sm">Dr. Gnanaprakash K</span>
+                    <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-semibold text-slate-700 shadow-sm">Dr. Vishnu R Unni</span>
+                    <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-semibold text-slate-700 shadow-sm">Dr. Karthick S K</span>
+                    <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-semibold text-slate-700 shadow-sm">Dr. Badarinath Karri</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <h5 class="font-bold text-lg mb-4">Contact Info</h5>
+                    <p class="text-slate-400 text-sm mb-2"><i class="fas fa-phone mr-2"></i> +91 040-2301 6684</p>
+                    <p class="text-slate-400 text-sm"><i class="fas fa-globe mr-2"></i> mae.iith.ac.in</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-lg mb-4">Venue</h5>
+                    <p class="text-slate-400 text-sm">
+                        Department of Mechanical & Aerospace Engineering<br>
+                        Indian Institute of Technology Hyderabad<br>
+                        Kandi, Sangareddy - 502284<br>
+                        Telangana, India
+                    </p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-lg mb-4">Quick Links</h5>
+                    <ul class="text-slate-400 text-sm space-y-2">
+                        <li><a href="#" class="hover:text-white">NCABE Official</a></li>
+                        <li><a href="#" class="hover:text-white">IIT Hyderabad</a></li>
+                        <li><a href="#" class="hover:text-white">MAE Department</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-800 text-center text-slate-500 text-xs">
+                &copy; 2027 NAPC. All rights reserved. 
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                menu.classList.add('hidden'); // Close mobile menu
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
