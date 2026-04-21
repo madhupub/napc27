@@ -221,9 +221,12 @@
 <script>
 const images = [
     "files/IITTower.webp",
-    "files/conf2.webp",
-    "files/conf3.webp",
-    "files/conf4.webp"
+    "files/DRDO1.webp",
+    "files/gt2.webp",
+    "files/Scramjetengine.webp",
+	"files/isro2.webp",
+	"files/isro3.webp",
+	"files/isro1.webp"
 ];
 
 let index = 0;
@@ -245,7 +248,7 @@ function startSlider() {
     interval = setInterval(() => {
         index = (index + 1) % images.length;
         showImage(index);
-    }, 2000);
+    }, 4000);
 }
 
 img.parentElement.addEventListener("mouseenter", () => clearInterval(interval));
