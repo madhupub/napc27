@@ -782,9 +782,8 @@ startSlider();
   </div>
 </section>
 
-<!-- Script -->
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbz1zUD9_J5zquvMC6_lugUQfsw8rnSYUI3t10wk4hh1l89XdIfXgJcXCOtwRCRpTBbJ/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbyyIqn38mREBBV2Joki_uMfzH9IrpB21xycHRXaGJEwpV5tTtgsIhuqIMsZWgfDJqSV/exec";
 
 const form = document.getElementById("regForm");
 const msg = document.getElementById("msg");
@@ -821,8 +820,13 @@ form.addEventListener("submit", async function(e) {
       msg.innerHTML = "✅ Registration Successful! Confirmation email sent.";
       msg.className = "text-green-600 text-center mt-4";
       form.reset();
+
+    } else if (result.status === "duplicate") {
+      msg.innerHTML = "⚠️ This email is already registered.";
+      msg.className = "text-yellow-600 text-center mt-4";
+
     } else {
-      throw new Error(result.message || "Something went wrong");
+      throw new Error(result.message);
     }
 
   } catch (error) {
@@ -835,6 +839,7 @@ form.addEventListener("submit", async function(e) {
 });
 </script>
 
+	
 <!-- Submission Tab Section -->
 <section id="submission" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
