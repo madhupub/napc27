@@ -732,33 +732,108 @@ startSlider();
 
 
 <!-- Registration Section -->
-<section id="registration" class="py-20 bg-white">
-<div class="max-w-xl mx-auto">
+<!-- Registration Section -->
+<section id="registration" class="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+  <div class="max-w-xl mx-auto px-6">
 
-<h3 class="text-3xl font-bold mb-6 text-center">Register</h3>
+    <!-- Card -->
+    <div class="bg-white shadow-xl rounded-2xl p-8 border border-slate-200">
+      
+      <!-- Heading -->
+      <h3 class="text-3xl font-bold text-center text-slate-900 mb-2">
+        Conference Registration
+      </h3>
+      <p class="text-center text-slate-500 mb-6">
+        Register for NAPC 2027
+      </p>
 
-<form id="regForm" class="space-y-4">
+      <!-- Form -->
+      <form id="regForm" class="space-y-4">
 
-<input name="name" placeholder="Full Name" required class="w-full border p-3 rounded">
-<input name="email" type="email" placeholder="Email" required class="w-full border p-3 rounded">
-<input name="affiliation" placeholder="Affiliation" required class="w-full border p-3 rounded">
+        <input name="name" placeholder="Full Name" required
+          class="w-full border border-slate-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
 
-<select name="category" class="w-full border p-3 rounded">
-<option>Student</option>
-<option>Faculty</option>
-<option>Industry</option>
-</select>
+        <input name="email" type="email" placeholder="Email Address" required
+          class="w-full border border-slate-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
 
-<button type="submit" class="w-full bg-blue-600 text-white py-3 rounded">
-Register
-</button>
+        <input name="affiliation" placeholder="Affiliation / Organization" required
+          class="w-full border border-slate-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
 
-</form>
+        <select name="category"
+          class="w-full border border-slate-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+          <option value="">Select Category</option>
+          <option>Student</option>
+          <option>Faculty</option>
+          <option>Industry</option>
+        </select>
 
-<p id="msg" class="text-center mt-4"></p>
+        <!-- Button -->
+        <button id="submitBtn" type="submit"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition duration-300">
+          Register Now
+        </button>
 
-</div>
+      </form>
+
+      <!-- Message -->
+      <p id="msg" class="text-center mt-4 text-sm"></p>
+
+    </div>
+  </div>
 </section>
+
+<!-- Script -->
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbxhJr-4Sg4jB37qeFBbsE9tqtukKuE3ZbVW6f2UHb50Z8Y1UhNetBydqFCIoKD3Qlw/exec";
+
+const form = document.getElementById("regForm");
+const msg = document.getElementById("msg");
+const btn = document.getElementById("submitBtn");
+
+form.addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  msg.innerHTML = "";
+  btn.disabled = true;
+  btn.innerHTML = "Processing...";
+
+  const formData = new FormData(form);
+
+  const data = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    affiliation: formData.get("affiliation"),
+    category: formData.get("category")
+  };
+
+  try {
+    const res = await fetch(scriptURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    const result = await res.json();
+
+    if (result.status === "success") {
+      msg.innerHTML = "✅ Registration Successful! Confirmation email sent.";
+      msg.className = "text-green-600 text-center mt-4";
+      form.reset();
+    } else {
+      throw new Error(result.message || "Something went wrong");
+    }
+
+  } catch (error) {
+    msg.innerHTML = "❌ Error: " + error.message;
+    msg.className = "text-red-600 text-center mt-4";
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = "Register Now";
+});
+</script>
 
 <!-- Submission Tab Section -->
 <section id="submission" class="py-24 bg-white">
