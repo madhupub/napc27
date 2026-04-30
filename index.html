@@ -783,59 +783,32 @@ startSlider();
 </section>
 
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbyyIqn38mREBBV2Joki_uMfzH9IrpB21xycHRXaGJEwpV5tTtgsIhuqIMsZWgfDJqSV/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbxhJr-4Sg4jB37qeFBbsE9tqtukKuE3ZbVW6f2UHb50Z8Y1UhNetBydqFCIoKD3Qlw/exec" ;
 
-const form = document.getElementById("regForm");
-const msg = document.getElementById("msg");
-const btn = document.getElementById("submitBtn");
+document.getElementById("regForm").addEventListener("submit", function(e){
+    e.preventDefault();
 
-form.addEventListener("submit", async function(e) {
-  e.preventDefault();
+    const formData = new FormData(this);
 
-  msg.innerHTML = "";
-  btn.disabled = true;
-  btn.innerHTML = "Processing...";
+    const data = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        affiliation: formData.get("affiliation"),
+        category: formData.get("category")
+    };
 
-  const formData = new FormData(form);
-
-  const data = {
-    name: formData.get("name"),
-    email: formData.get("email"),
-    affiliation: formData.get("affiliation"),
-    category: formData.get("category")
-  };
-
-  try {
-    const res = await fetch(scriptURL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
+    fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(res => {
+        document.getElementById("msg").innerHTML = "✅ Registration Successful!";
+        document.getElementById("regForm").reset();
+    })
+    .catch(err => {
+        document.getElementById("msg").innerHTML = "❌ Error. Try again.";
     });
-
-    const result = await res.json();
-
-    if (result.status === "success") {
-      msg.innerHTML = "✅ Registration Successful! Confirmation email sent.";
-      msg.className = "text-green-600 text-center mt-4";
-      form.reset();
-
-    } else if (result.status === "duplicate") {
-      msg.innerHTML = "⚠️ This email is already registered.";
-      msg.className = "text-yellow-600 text-center mt-4";
-
-    } else {
-      throw new Error(result.message);
-    }
-
-  } catch (error) {
-    msg.innerHTML = "❌ Error: " + error.message;
-    msg.className = "text-red-600 text-center mt-4";
-  }
-
-  btn.disabled = false;
-  btn.innerHTML = "Register Now";
 });
 </script>
 
@@ -1010,13 +983,13 @@ form.addEventListener("submit", async function(e) {
 
 <script>
 const images = [
-     "files/IITTower.webp",
+    "files/IITTower.webp",
     "files/DRDO1.jpg",
     "files/gt2.png",
     "files/Scramjetengine.png",
-	"files/isro2.png",
-	"files/isro3.png",
-	"files/isro1.jpg"
+    "files/isro2.png",
+    "files/isro3.png",
+    "files/isro1.jpg"
 ];
 
 let index = 0;
@@ -1025,10 +998,7 @@ let interval;
 const img = document.getElementById("galleryImage");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightboxImg");
 
-// Change image
 function showImage(i) {
     img.style.opacity = 0;
     setTimeout(() => {
@@ -1037,19 +1007,16 @@ function showImage(i) {
     }, 300);
 }
 
-// Auto slideshow
 function startSlider() {
     interval = setInterval(() => {
         index = (index + 1) % images.length;
         showImage(index);
-    }, 2000);
+    }, 4000); // slower, smoother
 }
 
-// Pause on hover
 img.parentElement.addEventListener("mouseenter", () => clearInterval(interval));
 img.parentElement.addEventListener("mouseleave", startSlider);
 
-// Buttons
 nextBtn.onclick = () => {
     index = (index + 1) % images.length;
     showImage(index);
@@ -1060,51 +1027,10 @@ prevBtn.onclick = () => {
     showImage(index);
 };
 
-// Lightbox
-img.onclick = () => {
-    lightbox.classList.remove("hidden");
-    lightbox.classList.add("flex");
-    lightboxImg.src = images[index];
-};
-
-lightbox.onclick = () => {
-    lightbox.classList.add("hidden");
-    lightbox.classList.remove("flex");
-};
-
-// Init
 startSlider();
 </script>
 
-	<script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbxhJr-4Sg4jB37qeFBbsE9tqtukKuE3ZbVW6f2UHb50Z8Y1UhNetBydqFCIoKD3Qlw/exec" ;
-
-document.getElementById("regForm").addEventListener("submit", function(e){
-    e.preventDefault();
-
-    const formData = new FormData(this);
-
-    const data = {
-        name: formData.get("name"),
-        email: formData.get("email"),
-        affiliation: formData.get("affiliation"),
-        category: formData.get("category")
-    };
-
-    fetch(scriptURL, {
-        method: "POST",
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(res => {
-        document.getElementById("msg").innerHTML = "✅ Registration Successful!";
-        document.getElementById("regForm").reset();
-    })
-    .catch(err => {
-        document.getElementById("msg").innerHTML = "❌ Error. Try again.";
-    });
-});
-</script>
+	
 
 </body>
 </html>
