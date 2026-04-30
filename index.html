@@ -731,7 +731,7 @@ startSlider();
 </section>
 
 
-<!-- Registration Section -->
+
 <!-- Registration Section -->
 <section id="registration" class="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
   <div class="max-w-xl mx-auto px-6">
@@ -784,7 +784,7 @@ startSlider();
 
 <!-- Script -->
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbwejpjxvWQ7jxq3pHr9a0oLwevW9jl7-38z7mWp8EYHJH8JOfNSOPz0zEZZsOxCFv-t/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbxhJr-4Sg4jB37qeFBbsE9tqtukKuE3ZbVW6f2UHb50Z8Y1UhNetBydqFCIoKD3Qlw/exec";
 
 const form = document.getElementById("regForm");
 const msg = document.getElementById("msg");
@@ -821,13 +821,8 @@ form.addEventListener("submit", async function(e) {
       msg.innerHTML = "✅ Registration Successful! Confirmation email sent.";
       msg.className = "text-green-600 text-center mt-4";
       form.reset();
-
-    } else if (result.status === "duplicate") {
-      msg.innerHTML = "⚠️ This email is already registered.";
-      msg.className = "text-yellow-600 text-center mt-4";
-
     } else {
-      throw new Error(result.message);
+      throw new Error(result.message || "Something went wrong");
     }
 
   } catch (error) {
