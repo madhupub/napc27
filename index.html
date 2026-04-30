@@ -930,10 +930,13 @@ Register
 
 <script>
 const images = [
-    "images/conf1.jpg",
-    "images/conf2.jpg",
-    "images/conf3.jpg",
-    "images/conf4.jpg"
+     "files/IITTower.webp",
+    "files/DRDO1.jpg",
+    "files/gt2.png",
+    "files/Scramjetengine.png",
+	"files/isro2.png",
+	"files/isro3.png",
+	"files/isro1.jpg"
 ];
 
 let index = 0;
@@ -991,6 +994,36 @@ lightbox.onclick = () => {
 
 // Init
 startSlider();
+</script>
+
+	<script>
+const scriptURL = https://script.google.com/macros/s/AKfycbxhJr-4Sg4jB37qeFBbsE9tqtukKuE3ZbVW6f2UHb50Z8Y1UhNetBydqFCIoKD3Qlw/exec ;
+
+document.getElementById("regForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    const data = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        affiliation: formData.get("affiliation"),
+        category: formData.get("category")
+    };
+
+    fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(res => {
+        document.getElementById("msg").innerHTML = "✅ Registration Successful!";
+        document.getElementById("regForm").reset();
+    })
+    .catch(err => {
+        document.getElementById("msg").innerHTML = "❌ Error. Try again.";
+    });
+});
 </script>
 
 </body>
