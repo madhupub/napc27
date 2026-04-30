@@ -821,8 +821,13 @@ form.addEventListener("submit", async function(e) {
       msg.innerHTML = "✅ Registration Successful! Confirmation email sent.";
       msg.className = "text-green-600 text-center mt-4";
       form.reset();
+
+    } else if (result.status === "duplicate") {
+      msg.innerHTML = "⚠️ This email is already registered.";
+      msg.className = "text-yellow-600 text-center mt-4";
+
     } else {
-      throw new Error(result.message || "Something went wrong");
+      throw new Error(result.message);
     }
 
   } catch (error) {
