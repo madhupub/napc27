@@ -802,6 +802,7 @@ startSlider();
 <script>
 const scriptURL = "https://script.google.com/macros/s/AKfycbwRt4kiReEoxFfoFcVOguMSNtIwLIGVdi6aZvlhBBDY2oST8OyZxB80Ixxtp9Q97Bh0/exec";
 
+
 const form = document.getElementById("regForm");
 const msg = document.getElementById("msg");
 const btn = document.getElementById("submitBtn");
@@ -818,19 +819,17 @@ form.addEventListener("submit", function(e){
         method: "POST",
         body: formData   // ✅ NO JSON, NO HEADERS
     })
-    .then(() => {
-        msg.innerHTML = "✅ Registration submitted successfully!<br>Check your email for confirmation.";
+   .then(response => response.text())
+   .then(text => {
+
+    if (text === "Duplicate") {
+        msg.innerHTML = "⚠️ Already registered with this Email/Phone/UTR.";
+        msg.className = "text-yellow-600 text-center mt-4";
+    } else {
+        msg.innerHTML = "✅ Registration successful! Check your email.";
         msg.className = "text-green-600 text-center mt-4";
-        form.reset();
-    })
-    .catch(() => {
-        msg.innerHTML = "❌ Failed to connect to server";
-        msg.className = "text-red-600 text-center mt-4";
-    })
-    .finally(() => {
-        btn.disabled = false;
-        btn.innerText = "Register Now";
-    });
+    }
+})
 });
 </script>
 
