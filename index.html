@@ -809,55 +809,21 @@ const btn = document.getElementById("submitBtn");
 form.addEventListener("submit", function(e){
     e.preventDefault();
 
-    // Disable button
     btn.disabled = true;
     btn.innerText = "Submitting...";
 
     const formData = new FormData(form);
 
-    const data = {
-        name: formData.get("name"),
-        email: formData.get("email"),
-        phone: formData.get("phone"),
-        organization: formData.get("organization"),
-        designation: formData.get("designation"),
-        category: formData.get("category"),
-        utr: formData.get("utr")
-    };
-
     fetch(scriptURL, {
         method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "application/json"
-        }
+        body: formData   // ✅ NO JSON, NO HEADERS
     })
-    .then(response => response.text())   // 🔥 IMPORTANT
-    .then(text => {
-        let res;
-
-        try {
-            res = JSON.parse(text);
-        } catch (err) {
-            throw new Error("Invalid server response");
-        }
-
-        if (res.status === "success") {
-            msg.innerHTML = "✅ Registration Successful!<br>Your ID: <b>" + res.regID + "</b>";
-            msg.className = "text-green-600 text-center mt-4";
-            form.reset();
-        } 
-        else if (res.status === "duplicate") {
-            msg.innerHTML = "⚠️ Already registered with this Email/Phone/UTR.";
-            msg.className = "text-yellow-600 text-center mt-4";
-        } 
-        else {
-            msg.innerHTML = "❌ Error: " + (res.message || "Unknown error");
-            msg.className = "text-red-600 text-center mt-4";
-        }
+    .then(() => {
+        msg.innerHTML = "✅ Registration submitted successfully!<br>Check your email for confirmation.";
+        msg.className = "text-green-600 text-center mt-4";
+        form.reset();
     })
-    .catch(error => {
-        console.error(error);
+    .catch(() => {
         msg.innerHTML = "❌ Failed to connect to server";
         msg.className = "text-red-600 text-center mt-4";
     })
@@ -867,6 +833,10 @@ form.addEventListener("submit", function(e){
     });
 });
 </script>
+
+
+
+	
 <!-- Submission Tab Section -->
 <section id="submission" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
