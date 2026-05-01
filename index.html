@@ -820,12 +820,11 @@ document.getElementById("regForm").addEventListener("submit", function(e){
         method: "POST",
         body: JSON.stringify(data)
     })
-    .then(res => res.json())
-	.then(res => {
+    .then(res => {
     const msg = document.getElementById("msg");
 
     if (res.status === "success") {
-        msg.innerHTML = "✅ Registration Successful!";
+        msg.innerHTML = "✅ Registration Successful!<br>Your ID: <b>" + res.regID + "</b>";
         msg.className = "text-green-600 text-center mt-4";
         document.getElementById("regForm").reset();
     } 
