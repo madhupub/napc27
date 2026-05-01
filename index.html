@@ -802,67 +802,35 @@ startSlider();
 <script>
 const scriptURL = "https://script.google.com/macros/s/AKfycbxpsQ9V8QW1EIsFyyBHQK2aolcKTG4ArJyK4BDw9TY5OqlyHa2ILo-0v-iUlfJZ_kfN/exec";
 
-document.getElementById("regForm").addEventListener("submit", function(e){
-    e.preventDefault();
+const form = document.getElementById("regForm");
+const msg = document.getElementById("msg");
+const btn = document.getElementById("submitBtn");
 
-    const form = this;
-    const btn = document.getElementById("submitBtn");
-    const msg = document.getElementById("msg");
+form.addEventListener("submit", e => {
+  e.preventDefault();
 
-    // 🔹 Disable button (prevent double submit)
-    btn.disabled = true;
-    btn.innerText = "Submitting...";
+  btn.disabled = true;
+  btn.innerText = "Submitting...";
 
-    const formData = new FormData(form);
+  const formData = new FormData(form);
 
-    const data = {
-        name: formData.get("name"),
-        email: formData.get("email"),
-        phone: formData.get("phone"),
-        organization: formData.get("organization"),
-        designation: formData.get("designation"),
-        category: formData.get("category"),
-        utr: formData.get("utr")
-    };
-
-    fetch(scriptURL, {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-    .then(res => res.text())   // 🔥 FIX
-    .then(text => {
-        let res;
-        try {
-            res = JSON.parse(text);   // 🔥 FIX
-        } catch (e) {
-            throw new Error("Server returned invalid response");
-        }
-
-        if (res.status === "success") {
-            msg.innerHTML = "✅ Registration Successful!<br>Your ID: <b>" + res.regID + "</b>";
-            msg.className = "text-green-600 text-center mt-4";
-            form.reset();
-        } 
-        else if (res.status === "duplicate") {
-            msg.innerHTML = "⚠️ Already registered with this Email/Phone/UTR.";
-            msg.className = "text-yellow-600 text-center mt-4";
-        } 
-        else {
-            msg.innerHTML = "❌ Error: " + (res.message || "Unknown error");
-            msg.className = "text-red-600 text-center mt-4";
-        }
-    })
-    .catch(err => {
-        msg.innerHTML = "❌ Error: " + err.message;
-        msg.className = "text-red-600 text-center mt-4";
-    })
-    .finally(() => {
-        btn.disabled = false;
-        btn.innerText = "Register Now";
-    });
+  fetch(scriptURL, {
+    method: "POST",
+    body: formData   // 🔥 KEY CHANGE (no JSON)
+  })
+  .then(() => {
+    msg.innerHTML = "✅ Registration submitted successfully!<br>Check your email for confirmation.";
+    msg.className = "text-green-600 text-center mt-4";
+    form.reset();
+  })
+  .catch(() => {
+    msg.innerHTML = "❌ Submission failed. Try again.";
+    msg.className = "text-red-600 text-center mt-4";
+  })
+  .finally(() => {
+    btn.disabled = false;
+    btn.innerText = "Register Now";
+  });
 });
 </script>
 	
