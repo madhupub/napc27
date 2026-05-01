@@ -750,22 +750,38 @@ startSlider();
       <!-- Form -->
       <form id="regForm" class="space-y-4">
 
+        <!-- Name -->
         <input name="name" placeholder="Full Name" required
           class="w-full border border-slate-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
 
+        <!-- Email -->
         <input name="email" type="email" placeholder="Email Address" required
           class="w-full border border-slate-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
 
-        <input name="affiliation" placeholder="Affiliation / Organization" required
+        <!-- Phone -->
+        <input name="phone" type="tel" placeholder="Phone Number" required
           class="w-full border border-slate-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
 
-        <select name="category"
+        <!-- Organization -->
+        <input name="organization" placeholder="Organization" required
+          class="w-full border border-slate-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+
+        <!-- Designation -->
+        <input name="designation" placeholder="Designation" required
+          class="w-full border border-slate-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+
+        <!-- Category -->
+        <select name="category" required
           class="w-full border border-slate-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
           <option value="">Select Category</option>
           <option>Student</option>
           <option>Faculty</option>
           <option>Industry</option>
         </select>
+
+        <!-- Payment UTR -->
+        <input name="utr" placeholder="Payment UTR / Transaction Reference Number" required
+          class="w-full border border-slate-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
 
         <!-- Button -->
         <button id="submitBtn" type="submit"
@@ -783,7 +799,7 @@ startSlider();
 </section>
 
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbyxHnoYuKz0m-eU0h8QPmCrYTRrmpLTtTsbLY9241wsfsFTD3KFd-Bz1amX_wZKuP9t/exec" ;
+const scriptURL = "https://script.google.com/macros/s/AKfycbyxHnoYuKz0m-eU0h8QPmCrYTRrmpLTtTsbLY9241wsfsFTD3KFd-Bz1amX_wZKuP9t/exec";
 
 document.getElementById("regForm").addEventListener("submit", function(e){
     e.preventDefault();
@@ -793,8 +809,11 @@ document.getElementById("regForm").addEventListener("submit", function(e){
     const data = {
         name: formData.get("name"),
         email: formData.get("email"),
-        affiliation: formData.get("affiliation"),
-        category: formData.get("category")
+        phone: formData.get("phone"),
+        organization: formData.get("organization"),
+        designation: formData.get("designation"),
+        category: formData.get("category"),
+        utr: formData.get("utr")
     };
 
     fetch(scriptURL, {
@@ -811,7 +830,6 @@ document.getElementById("regForm").addEventListener("submit", function(e){
     });
 });
 </script>
-
 	
 <!-- Submission Tab Section -->
 <section id="submission" class="py-24 bg-white">
