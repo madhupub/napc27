@@ -799,7 +799,7 @@ startSlider();
 </section>
 
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbyxHnoYuKz0m-eU0h8QPmCrYTRrmpLTtTsbLY9241wsfsFTD3KFd-Bz1amX_wZKuP9t/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbz4Gx-P24lBp-xl15AY31iX5s3Zkq1Gxz57jifWH_9B9YgI3sjE7vUajz36ktn6ErZh/exec";
 
 document.getElementById("regForm").addEventListener("submit", function(e){
     e.preventDefault();
@@ -821,13 +821,23 @@ document.getElementById("regForm").addEventListener("submit", function(e){
         body: JSON.stringify(data)
     })
     .then(res => res.json())
-    .then(res => {
-        document.getElementById("msg").innerHTML = "✅ Registration Successful!";
+	.then(res => {
+    const msg = document.getElementById("msg");
+
+    if (res.status === "success") {
+        msg.innerHTML = "✅ Registration Successful!";
+        msg.className = "text-green-600 text-center mt-4";
         document.getElementById("regForm").reset();
-    })
-    .catch(err => {
-        document.getElementById("msg").innerHTML = "❌ Error. Try again.";
-    });
+    } 
+    else if (res.status === "duplicate") {
+        msg.innerHTML = "⚠️ Already registered with this Email/Phone/UTR.";
+        msg.className = "text-yellow-600 text-center mt-4";
+    } 
+    else {
+        msg.innerHTML = "❌ Error: " + res.message;
+        msg.className = "text-red-600 text-center mt-4";
+    }
+})
 });
 </script>
 	
