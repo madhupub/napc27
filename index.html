@@ -798,13 +798,22 @@ startSlider();
   </div>
 </section>
 
+
 <script>
 const scriptURL = "https://script.google.com/macros/s/AKfycbym1OaosjuwzcC9Qfhaz-o5tHxauEWshL9OWw51L95Km9zyaexYbJBrSlPsMZ2N2Xjy/exec";
 
 document.getElementById("regForm").addEventListener("submit", function(e){
     e.preventDefault();
 
-    const formData = new FormData(this);
+    const form = this;
+    const btn = document.getElementById("submitBtn");
+    const msg = document.getElementById("msg");
+
+    // 🔹 Disable button (prevent double submit)
+    btn.disabled = true;
+    btn.innerText = "Submitting...";
+
+    const formData = new FormData(form);
 
     const data = {
         name: formData.get("name"),
@@ -818,25 +827,42 @@ document.getElementById("regForm").addEventListener("submit", function(e){
 
     fetch(scriptURL, {
         method: "POST",
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
     })
-    .then(res => {
-    const msg = document.getElementById("msg");
+    .then(res => res.text())   // 🔥 FIX
+    .then(text => {
+        let res;
+        try {
+            res = JSON.parse(text);   // 🔥 FIX
+        } catch (e) {
+            throw new Error("Server returned invalid response");
+        }
 
-    if (res.status === "success") {
-        msg.innerHTML = "✅ Registration Successful!<br>Your ID: <b>" + res.regID + "</b>";
-        msg.className = "text-green-600 text-center mt-4";
-        document.getElementById("regForm").reset();
-    } 
-    else if (res.status === "duplicate") {
-        msg.innerHTML = "⚠️ Already registered with this Email/Phone/UTR.";
-        msg.className = "text-yellow-600 text-center mt-4";
-    } 
-    else {
-        msg.innerHTML = "❌ Error: " + res.message;
+        if (res.status === "success") {
+            msg.innerHTML = "✅ Registration Successful!<br>Your ID: <b>" + res.regID + "</b>";
+            msg.className = "text-green-600 text-center mt-4";
+            form.reset();
+        } 
+        else if (res.status === "duplicate") {
+            msg.innerHTML = "⚠️ Already registered with this Email/Phone/UTR.";
+            msg.className = "text-yellow-600 text-center mt-4";
+        } 
+        else {
+            msg.innerHTML = "❌ Error: " + (res.message || "Unknown error");
+            msg.className = "text-red-600 text-center mt-4";
+        }
+    })
+    .catch(err => {
+        msg.innerHTML = "❌ Error: " + err.message;
         msg.className = "text-red-600 text-center mt-4";
-    }
- })
+    })
+    .finally(() => {
+        btn.disabled = false;
+        btn.innerText = "Register Now";
+    });
 });
 </script>
 	
