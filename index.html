@@ -1580,13 +1580,32 @@ document
 
         });
 
+       
         // ===== RESPONSE =====
-        const result = await response.json();
+		const text = await response.text();
+
+		console.log(text);
+
+		let result;
+
+		try {
+
+  		result = JSON.parse(text);
+
+		}
+		catch(parseError) {
+
+    console.error("JSON Parse Error:", parseError);
+
+    throw new Error(
+        "Server returned invalid response. Please wait a few seconds and check your email confirmation."
+    );
+}
 
         console.log(result);
 
         // ===== SUCCESS =====
-        if (result.status === "success") {
+        if (result.status && result.status === "success") {
 
             successBox.style.display = "block";
 
