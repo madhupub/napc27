@@ -2683,61 +2683,8 @@ function fileToBase64(file) {
         renderAccommTable();
     }
 
-    /* =========================================================
-       REGISTRATION FORM — Google Sheets via Apps Script
-       ⚠ IMPORTANT: Replace REGISTRATION_SCRIPT_URL below with
-         your deployed Google Apps Script Web App URL.
-         Go to: script.google.com → New Project → Paste the
-         Apps Script from your project → Deploy as Web App
-         (Anyone can access, Execute as Me) → Copy URL here.
-    ========================================================= */
-    const REGISTRATION_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwRt4kiReEoxFfoFcVOguMSNtIwLIGVdi6aZvlhBBDY2oST8OyZxB80Ixxtp9Q97Bh0/exec";
-
-    const regForm = document.getElementById('regForm');
-    if (regForm) {
-        regForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn     = document.getElementById('regSubmitBtn');
-            const success = document.getElementById('reg-success');
-            const error   = document.getElementById('reg-error');
-            success.style.display = 'none';
-            error.style.display   = 'none';
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-
-            const formData = new FormData(regForm);
-
-            fetch(REGISTRATION_SCRIPT_URL, { method: 'POST', body: formData })
-            .then(() => {
-                success.style.display = 'block';
-                regForm.reset();
-            })
-            .catch(() => {
-                error.style.display = 'block';
-            })
-            .finally(() => {
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Register Now';
-            });
-        });
-    }
-
-    /* =========================================================
-       ACCOMMODATION FORM — also sends to Google Sheets
-       ⚠ IMPORTANT: Replace ACCOMM_SCRIPT_URL below with your
-         Google Apps Script Web App URL (can be the same sheet
-         as registration or a separate one — just use the
-         matching deployed URL).
-    ========================================================= */
-    const ACCOMM_SCRIPT_URL = "PASTE_YOUR_ACCOMMODATION_APPS_SCRIPT_URL_HERE";
-
-    function submitAccommToSheets(entry) {
-        if (!ACCOMM_SCRIPT_URL || ACCOMM_SCRIPT_URL.startsWith('PASTE_')) return; // skip if not configured
-        const fd = new FormData();
-        Object.keys(entry).forEach(k => fd.append(k, entry[k]));
-        fetch(ACCOMM_SCRIPT_URL, { method: 'POST', body: fd }).catch(() => {/* silent — data already in localStorage */});
-    }
-
+    
+    
     /* =========================================================
        ADMIN PANEL — password-protect xlsx download / view
        ⚠ Change ADMIN_PASSWORD below to your own password.
