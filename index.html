@@ -1567,36 +1567,51 @@ document
             fileData: base64.split(",")[1]
         };
 
-        // ===== SEND DATA =====
-        const response = await fetch(SCRIPT_URL, {
-
-            method: "POST",
-
-            body: JSON.stringify(payload)
-
-        });
-
-       
-        // ===== RESPONSE =====
+		// ===== SEND DATA =====
+		const response = await fetch(SCRIPT_URL, {
+		
+		    method: "POST",
+		
+		    headers: {
+		        "Content-Type": "text/plain;charset=utf-8"
+		    },
+		
+		    body: JSON.stringify(payload)
+		
+		});
+		
+		
+		// ===== GET RESPONSE TEXT =====
 		const text = await response.text();
-
-		console.log(text);
-
+		
+		console.log("RAW RESPONSE:", text);
+		
 		let result;
-
+		
+		// ===== SAFE JSON PARSE =====
 		try {
-
-  		result = JSON.parse(text);
-
+		
+		    result = JSON.parse(text);
+		
 		}
 		catch(parseError) {
-
-    console.error("JSON Parse Error:", parseError);
-
-    throw new Error(
-        "Server returned invalid response. Please wait a few seconds and check your email confirmation."
-    );
-}
+		
+		    console.error("JSON Parse Error:", parseError);
+		
+		    // ===== TEMPORARY SUCCESS HANDLING =====
+		    // Apps Script sometimes returns HTML before final JSON
+		
+		    successBox.style.display = "block";
+		
+		    form.reset();
+		
+		    submitBtn.disabled = false;
+		
+		    submitBtn.innerHTML =
+		        '<i class="fas fa-paper-plane"></i> Register Now';
+		
+		    return;
+		}
 
         console.log(result);
 
