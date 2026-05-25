@@ -1506,8 +1506,17 @@ GST @ 18%, as applicable.. Registration includes conference kit and materials, a
 
 <script>
 
+// ======================================================
+// COMMON CONFIG
+// ======================================================
+
 const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbxS8sqBcr2NLJAdRlX3pHcT_S4GIZ-1teaEOsAR1ptgVglSiIGA3iJMXrXrUfNoV_tW/exec";
+"https://script.google.com/macros/s/AKfycbwOcvEPf3Jh_mriSjtBL02UXpsSC2vFg5FRMhKIwPZCYAcPc1DSmGiCREYq1m6UCv-l/exec";
+
+
+// ======================================================
+// REGISTRATION FORM SUBMIT
+// ======================================================
 
 document
 .getElementById("regForm")
@@ -1526,6 +1535,10 @@ document
     const submitBtn =
         document.getElementById("regSubmitBtn");
 
+    // ===== PREVENT DOUBLE CLICK =====
+
+    if (submitBtn.disabled) return;
+
     successBox.style.display = "none";
     errorBox.style.display = "none";
 
@@ -1536,7 +1549,10 @@ document
 
     try {
 
-        // ===== FILE =====
+        // ======================================================
+        // FILE VALIDATION
+        // ======================================================
+
         const file = form.paymentProof.files[0];
 
         if (!file) {
@@ -1544,130 +1560,345 @@ document
         }
 
         // ===== FILE SIZE =====
+
         if (file.size > 5 * 1024 * 1024) {
             throw new Error("File size must be below 5 MB");
         }
 
-        // ===== CONVERT FILE TO BASE64 =====
-        const base64 = await fileToBase64(file);
+        // ===== FILE TYPE =====
 
-        // ===== PAYLOAD =====
+        const allowedTypes = [
+            "application/pdf",
+            "image/jpeg",
+            "image/png"
+        ];
+
+        if (!allowedTypes.includes(file.type)) {
+            throw new Error(
+                "Only PDF, JPG, JPEG or PNG files are allowed"
+            );
+        }
+
+        // ======================================================
+        // CONVERT FILE TO BASE64
+        // ======================================================
+
+        const base64 =
+            await fileToBase64(file);
+
+        // ======================================================
+        // PAYLOAD
+        // ======================================================
+
         const payload = {
 
-            name: form.name.value.trim(),
-            email: form.email.value.trim(),
-            phone: form.phone.value.trim(),
-            organization: form.organization.value.trim(),
-            designation: form.designation.value.trim(),
-            category: form.category.value,
-            utr: form.utr.value.trim(),
+            name:
+                form.name.value.trim(),
 
-            fileName: file.name,
-            fileMimeType: file.type,
-            fileData: base64.split(",")[1]
+            email:
+                form.email.value.trim(),
+
+            phone:
+                form.phone.value.trim(),
+
+            organization:
+                form.organization.value.trim(),
+
+            designation:
+                form.designation.value.trim(),
+
+            category:
+                form.category.value,
+
+            utr:
+                form.utr.value.trim(),
+
+            fileName:
+                file.name,
+
+            fileMimeType:
+                file.type,
+
+            fileData:
+                base64.split(",")[1]
         };
 
-		// ===== SEND DATA =====
-		const response = await fetch(SCRIPT_URL, {
-		
-		    method: "POST",
-		
-		    headers: {
-		        "Content-Type": "text/plain;charset=utf-8"
-		    },
-		
-		    body: JSON.stringify(payload)
-		
-		});
-		
-		
-		// ===== GET RESPONSE TEXT =====
-		const text = await response.text();
-		
-		console.log("RAW RESPONSE:", text);
-		
-		let result;
-		
-		// ===== SAFE JSON PARSE =====
-		try {
-		
-		    result = JSON.parse(text);
-		
-		}
-		catch(parseError) {
-		
-		    console.error("JSON Parse Error:", parseError);
-		
-		    // ===== TEMPORARY SUCCESS HANDLING =====
-		    // Apps Script sometimes returns HTML before final JSON
-		
-		    successBox.style.display = "block";
-		
-		    form.reset();
-		
-		    submitBtn.disabled = false;
-		
-		    submitBtn.innerHTML =
-		        '<i class="fas fa-paper-plane"></i> Register Now';
-		
-		    return;
-		}
+        // ======================================================
+        // SEND DATA
+        // ======================================================
 
-        console.log(result);
+        const response =
+            await fetch(SCRIPT_URL, {
 
-        // ===== SUCCESS =====
-        if (result.status && result.status === "success") {
+                method: "POST",
 
-            successBox.style.display = "block";
+                headers: {
+                    "Content-Type":
+                    "text/plain;charset=utf-8"
+                },
+
+                body:
+                    JSON.stringify(payload)
+
+            });
+
+        const text =
+            await response.text();
+
+        console.log("RAW RESPONSE:", text);
+
+        const result =
+            JSON.parse(text);
+
+        // ======================================================
+        // SUCCESS
+        // ======================================================
+
+        if (result.status === "success") {
+
+            successBox.style.display =
+                "block";
 
             form.reset();
         }
 
-        // ===== DUPLICATE EMAIL =====
-        else if (result.status === "duplicate_email") {
+        // ======================================================
+        // DUPLICATE EMAIL
+        // ======================================================
+
+        else if (
+            result.status ===
+            "duplicate_email"
+        ) {
 
             errorBox.innerHTML =
                 "<strong>Email already registered.</strong>";
 
-            errorBox.style.display = "block";
+            errorBox.style.display =
+                "block";
         }
 
-        // ===== DUPLICATE UTR =====
-        else if (result.status === "duplicate_utr") {
+        // ======================================================
+        // DUPLICATE UTR
+        // ======================================================
+
+        else if (
+            result.status ===
+            "duplicate_utr"
+        ) {
 
             errorBox.innerHTML =
                 "<strong>Duplicate UTR detected.</strong>";
 
-            errorBox.style.display = "block";
+            errorBox.style.display =
+                "block";
         }
 
-        // ===== OTHER ERROR =====
+        // ======================================================
+        // OTHER ERROR
+        // ======================================================
+
         else {
 
             errorBox.innerHTML =
                 "<strong>" +
-                (result.message || "Submission failed") +
+                (result.message ||
+                "Submission failed") +
                 "</strong>";
 
-            errorBox.style.display = "block";
+            errorBox.style.display =
+                "block";
         }
 
     }
+
+    // ======================================================
+    // ERROR
+    // ======================================================
+
     catch(err) {
 
         console.error(err);
 
         errorBox.innerHTML =
-            "<strong>" + err.message + "</strong>";
+            "<strong>" +
+            err.message +
+            "</strong>";
 
-        errorBox.style.display = "block";
+        errorBox.style.display =
+            "block";
     }
 
-    // ===== RESET BUTTON =====
+    // ======================================================
+    // RESET BUTTON
+    // ======================================================
+
     submitBtn.disabled = false;
 
     submitBtn.innerHTML =
         '<i class="fas fa-paper-plane"></i> Register Now';
+});
+
+
+// ======================================================
+// ACCOMMODATION FORM SUBMIT
+// ======================================================
+
+document
+.getElementById("accommodationForm")
+.addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    const form = this;
+
+    const successBox =
+        document.getElementById("accomm-success");
+
+    const errorBox =
+        document.getElementById("accomm-error");
+
+    const submitBtn =
+        document.getElementById("accommSubmitBtn");
+
+    // ===== PREVENT DOUBLE CLICK =====
+
+    if (submitBtn.disabled) return;
+
+    successBox.style.display = "none";
+    errorBox.style.display = "none";
+
+    submitBtn.disabled = true;
+
+    submitBtn.innerHTML =
+        '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+    try {
+
+        // ======================================================
+        // PAYLOAD
+        // ======================================================
+
+        const payload = {
+
+            formType: "accommodation",
+
+            fullName:
+                form.fullName.value.trim(),
+
+            email:
+                form.email.value.trim(),
+
+            mobile:
+                form.mobile.value.trim(),
+
+            institution:
+                form.institution.value.trim(),
+
+            paperId:
+                form.paperId.value.trim(),
+
+            designation:
+                form.designation.value.trim(),
+
+            accommType:
+                form.accommType.value,
+
+            checkin:
+                form.checkin.value,
+
+            checkout:
+                form.checkout.value,
+
+            occupancy:
+                form.occupancy.value,
+
+            remarks:
+                form.remarks.value.trim()
+        };
+
+        // ======================================================
+        // SEND DATA
+        // ======================================================
+
+        const response =
+            await fetch(SCRIPT_URL, {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                    "text/plain;charset=utf-8"
+                },
+
+                body:
+                    JSON.stringify(payload)
+
+            });
+
+        const text =
+            await response.text();
+
+        console.log("RAW RESPONSE:", text);
+
+        const result =
+            JSON.parse(text);
+
+        // ======================================================
+        // SUCCESS
+        // ======================================================
+
+        if (result.status === "success") {
+
+            successBox.style.display =
+                "block";
+
+            form.reset();
+        }
+
+        // ======================================================
+        // ERROR
+        // ======================================================
+
+        else {
+
+            errorBox.innerHTML =
+                "<strong>" +
+                (result.message ||
+                "Accommodation request failed") +
+                "</strong>";
+
+            errorBox.style.display =
+                "block";
+        }
+
+    }
+
+    // ======================================================
+    // ERROR
+    // ======================================================
+
+    catch(err) {
+
+        console.error(err);
+
+        errorBox.innerHTML =
+            "<strong>" +
+            err.message +
+            "</strong>";
+
+        errorBox.style.display =
+            "block";
+    }
+
+    // ======================================================
+    // RESET BUTTON
+    // ======================================================
+
+    submitBtn.disabled = false;
+
+    submitBtn.innerHTML =
+        '<i class="fas fa-paper-plane"></i> Submit Accommodation';
 });
 
 
@@ -1679,13 +1910,16 @@ function fileToBase64(file) {
 
     return new Promise((resolve, reject) => {
 
-        const reader = new FileReader();
+        const reader =
+            new FileReader();
 
         reader.readAsDataURL(file);
 
-        reader.onload = () => resolve(reader.result);
+        reader.onload =
+            () => resolve(reader.result);
 
-        reader.onerror = error => reject(error);
+        reader.onerror =
+            error => reject(error);
     });
 }
 
