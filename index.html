@@ -1503,7 +1503,262 @@ GST @ 18%, as applicable.. Registration includes conference kit and materials, a
         </div>
     </div>
 </div>
+<!-- ==============================================================
+     PAGE: ACCOMMODATION
+============================================================== -->
+<div id="page-accommodation" class="page">
 
+    <div class="page-header">
+        <h2>Accommodation</h2>
+        <p>On-campus stay for conference delegates</p>
+    </div>
+
+    <div class="page-body">
+
+        <!-- Accommodation Info -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px;">
+
+            <!-- Student Hostel -->
+            <div class="card" style="border-left:4px solid var(--teal);margin-bottom:0;">
+                <div class="card-title">
+                    <i class="fas fa-graduation-cap" style="color:var(--teal);margin-right:8px;"></i>
+                    Student Hostel
+                </div>
+
+                <p style="font-size:0.88rem;line-height:1.8;color:var(--muted);margin:0 0 10px;">
+                    Hostel accommodation on IIT Hyderabad campus is available for
+                    <strong style="color:var(--navy);">
+                        student delegates and research scholars
+                    </strong>
+                    on request.
+                </p>
+
+                <ul style="font-size:0.83rem;color:var(--muted);line-height:2;padding-left:18px;margin:0;">
+                    <li>Shared / single occupancy rooms</li>
+                    <li>Mess facility available</li>
+                    <li>Subject to availability</li>
+                    <li>Valid student ID required</li>
+                </ul>
+            </div>
+
+            <!-- Guest House -->
+            <div class="card" style="border-left:4px solid var(--gold);margin-bottom:0;">
+
+                <div class="card-title">
+                    <i class="fas fa-hotel" style="color:var(--gold);margin-right:8px;"></i>
+                    Institute Guest House
+                </div>
+
+                <p style="font-size:0.88rem;line-height:1.8;color:var(--muted);margin:0 0 10px;">
+                    IIT Hyderabad Guest House is available for
+                    <strong style="color:var(--navy);">
+                        faculty, scientists and industry delegates
+                    </strong>
+                    on request.
+                </p>
+
+                <ul style="font-size:0.83rem;color:var(--muted);line-height:2;padding-left:18px;margin:0;">
+                    <li>AC rooms with attached bathrooms</li>
+                    <li>Catering available on campus</li>
+                    <li>Subject to availability</li>
+                    <li>Priority for outstation delegates</li>
+                </ul>
+
+            </div>
+        </div>
+
+
+
+
+        <!-- Accommodation Form -->
+        <div class="accomm-form">
+
+            <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:14px;">
+                <i class="fas fa-bed" style="color:var(--teal);margin-right:8px;"></i>
+                Accommodation Request Form
+            </h3>
+
+            <p style="font-size:0.85rem;color:var(--muted);margin:0 0 22px;line-height:1.6;">
+                Fill in the details below to request on-campus accommodation.
+            </p>
+
+            <form id="accommForm" onsubmit="submitAccomm(event)">
+
+                <!-- Row 1 -->
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Full Name <span class="req">*</span></label>
+                        <input type="text" name="fullName" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address <span class="req">*</span></label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
+
+                </div>
+
+                <!-- Row 2 -->
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Mobile Number <span class="req">*</span></label>
+                        <input type="tel" name="mobile" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Institution / Organisation <span class="req">*</span></label>
+                        <input type="text" name="institution" class="form-control" required>
+                    </div>
+
+                </div>
+
+                <!-- Row 3 -->
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Paper Submission ID</label>
+                        <input type="text" name="paperId" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Designation <span class="req">*</span></label>
+
+                        <select name="designation" class="form-control" required>
+                            <option value="">Select designation</option>
+                            <option>PhD Student</option>
+                            <option>M.Tech / M.S. Student</option>
+                            <option>Research Scholar</option>
+                            <option>Faculty / Professor</option>
+                            <option>Scientist / Engineer</option>
+                            <option>Industry Professional</option>
+                            <option>Postdoctoral Researcher</option>
+                            <option>Other</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <!-- Accommodation Type -->
+                <div class="form-group">
+
+                    <label>
+                        Accommodation Type Requested
+                        <span class="req">*</span>
+                    </label>
+
+                    <div class="radio-group">
+
+                        <label class="radio-opt">
+                            <input type="radio" name="accommType" value="Student Hostel" required>
+
+                            <div>
+                                <div class="opt-label">
+                                    <strong>Student Hostel</strong>
+                                </div>
+
+                                <div class="opt-sub">
+                                    Shared room accommodation for students and scholars.
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="radio-opt">
+                            <input type="radio" name="accommType" value="Institute Guest House">
+
+                            <div>
+                                <div class="opt-label">
+                                    <strong>Institute Guest House</strong>
+                                </div>
+
+                                <div class="opt-sub">
+                                    AC room accommodation for faculty and delegates.
+                                </div>
+                            </div>
+                        </label>
+
+                    </div>
+                </div>
+
+                <!-- Dates -->
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Check-in Date <span class="req">*</span></label>
+                        <input type="date" name="checkin" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Check-out Date <span class="req">*</span></label>
+                        <input type="date" name="checkout" class="form-control" required>
+                    </div>
+
+                </div>
+
+                <!-- Occupancy -->
+                <div class="form-group">
+
+                    <label>Occupancy Preference</label>
+
+                    <select name="occupancy" class="form-control">
+                        <option value="">Select preference</option>
+                        <option>Single occupancy</option>
+                        <option>Shared occupancy</option>
+                        <option>No preference</option>
+                    </select>
+
+                </div>
+
+                <!-- Remarks -->
+                <div class="form-group">
+
+                    <label>Special Requirements / Remarks</label>
+
+                    <textarea
+                        name="remarks"
+                        class="form-control"
+                        rows="3"
+                        placeholder="Dietary restrictions, accessibility needs, etc."
+                    ></textarea>
+
+                </div>
+
+                <!-- Submit -->
+                <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+
+                    <button type="submit" class="submit-form-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Request
+                    </button>
+
+                    <p style="font-size:0.78rem;color:var(--muted);margin:0;">
+                        Your request will be recorded securely.
+                    </p>
+
+                </div>
+
+                <!-- Success Message -->
+                <div class="form-success" id="accomm-success" style="display:none;">
+
+                    <i class="fas fa-check-circle" style="margin-right:8px;"></i>
+
+                    <strong>
+                        Request submitted successfully!
+                    </strong>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+	
 <script>
 
 // ======================================================
@@ -2324,315 +2579,7 @@ function fileToBase64(file) {
     </div>
 </div>
 
-<!-- ==============================================================
-     PAGE: ACCOMMODATION
-============================================================== -->
-<div id="page-accommodation" class="page">
 
-    <div class="page-header">
-        <h2>Accommodation</h2>
-        <p>On-campus stay for conference delegates</p>
-    </div>
-
-    <div class="page-body">
-
-        <!-- Accommodation Info -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px;">
-
-            <!-- Student Hostel -->
-            <div class="card" style="border-left:4px solid var(--teal);margin-bottom:0;">
-                <div class="card-title">
-                    <i class="fas fa-graduation-cap" style="color:var(--teal);margin-right:8px;"></i>
-                    Student Hostel
-                </div>
-
-                <p style="font-size:0.88rem;line-height:1.8;color:var(--muted);margin:0 0 10px;">
-                    Hostel accommodation on IIT Hyderabad campus is available for
-                    <strong style="color:var(--navy);">
-                        student delegates and research scholars
-                    </strong>
-                    on request.
-                </p>
-
-                <ul style="font-size:0.83rem;color:var(--muted);line-height:2;padding-left:18px;margin:0;">
-                    <li>Shared / single occupancy rooms</li>
-                    <li>Mess facility available</li>
-                    <li>Subject to availability</li>
-                    <li>Valid student ID required</li>
-                </ul>
-            </div>
-
-            <!-- Guest House -->
-            <div class="card" style="border-left:4px solid var(--gold);margin-bottom:0;">
-
-                <div class="card-title">
-                    <i class="fas fa-hotel" style="color:var(--gold);margin-right:8px;"></i>
-                    Institute Guest House
-                </div>
-
-                <p style="font-size:0.88rem;line-height:1.8;color:var(--muted);margin:0 0 10px;">
-                    IIT Hyderabad Guest House is available for
-                    <strong style="color:var(--navy);">
-                        faculty, scientists and industry delegates
-                    </strong>
-                    on request.
-                </p>
-
-                <ul style="font-size:0.83rem;color:var(--muted);line-height:2;padding-left:18px;margin:0;">
-                    <li>AC rooms with attached bathrooms</li>
-                    <li>Catering available on campus</li>
-                    <li>Subject to availability</li>
-                    <li>Priority for outstation delegates</li>
-                </ul>
-
-            </div>
-        </div>
-
-        <!-- Accommodation Form -->
-        <div class="accomm-form">
-
-            <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:14px;">
-                <i class="fas fa-bed" style="color:var(--teal);margin-right:8px;"></i>
-                Accommodation Request Form
-            </h3>
-
-            <p style="font-size:0.85rem;color:var(--muted);margin:0 0 22px;line-height:1.6;">
-                Fill in the details below to request on-campus accommodation.
-            </p>
-
-            <form id="accommForm" onsubmit="submitAccomm(event)">
-
-                <!-- Row 1 -->
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label>Full Name <span class="req">*</span></label>
-                        <input type="text" name="fullName" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Email Address <span class="req">*</span></label>
-                        <input type="email" name="email" class="form-control" required>
-                    </div>
-
-                </div>
-
-                <!-- Row 2 -->
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label>Mobile Number <span class="req">*</span></label>
-                        <input type="tel" name="mobile" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Institution / Organisation <span class="req">*</span></label>
-                        <input type="text" name="institution" class="form-control" required>
-                    </div>
-
-                </div>
-
-                <!-- Row 3 -->
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label>Paper Submission ID</label>
-                        <input type="text" name="paperId" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Designation <span class="req">*</span></label>
-
-                        <select name="designation" class="form-control" required>
-                            <option value="">Select designation</option>
-                            <option>PhD Student</option>
-                            <option>M.Tech / M.S. Student</option>
-                            <option>Research Scholar</option>
-                            <option>Faculty / Professor</option>
-                            <option>Scientist / Engineer</option>
-                            <option>Industry Professional</option>
-                            <option>Postdoctoral Researcher</option>
-                            <option>Other</option>
-                        </select>
-
-                    </div>
-
-                </div>
-
-                <!-- Accommodation Type -->
-                <div class="form-group">
-
-                    <label>
-                        Accommodation Type Requested
-                        <span class="req">*</span>
-                    </label>
-
-                    <div class="radio-group">
-
-                        <label class="radio-opt">
-                            <input type="radio" name="accommType" value="Student Hostel" required>
-
-                            <div>
-                                <div class="opt-label">
-                                    <strong>Student Hostel</strong>
-                                </div>
-
-                                <div class="opt-sub">
-                                    Shared room accommodation for students and scholars.
-                                </div>
-                            </div>
-                        </label>
-
-                        <label class="radio-opt">
-                            <input type="radio" name="accommType" value="Institute Guest House">
-
-                            <div>
-                                <div class="opt-label">
-                                    <strong>Institute Guest House</strong>
-                                </div>
-
-                                <div class="opt-sub">
-                                    AC room accommodation for faculty and delegates.
-                                </div>
-                            </div>
-                        </label>
-
-                    </div>
-                </div>
-
-                <!-- Dates -->
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label>Check-in Date <span class="req">*</span></label>
-                        <input type="date" name="checkin" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Check-out Date <span class="req">*</span></label>
-                        <input type="date" name="checkout" class="form-control" required>
-                    </div>
-
-                </div>
-
-                <!-- Occupancy -->
-                <div class="form-group">
-
-                    <label>Occupancy Preference</label>
-
-                    <select name="occupancy" class="form-control">
-                        <option value="">Select preference</option>
-                        <option>Single occupancy</option>
-                        <option>Shared occupancy</option>
-                        <option>No preference</option>
-                    </select>
-
-                </div>
-
-                <!-- Remarks -->
-                <div class="form-group">
-
-                    <label>Special Requirements / Remarks</label>
-
-                    <textarea
-                        name="remarks"
-                        class="form-control"
-                        rows="3"
-                        placeholder="Dietary restrictions, accessibility needs, etc."
-                    ></textarea>
-
-                </div>
-
-                <!-- Submit -->
-                <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-
-                    <button type="submit" class="submit-form-btn">
-                        <i class="fas fa-paper-plane"></i>
-                        Submit Request
-                    </button>
-
-                    <p style="font-size:0.78rem;color:var(--muted);margin:0;">
-                        Your request will be recorded securely.
-                    </p>
-
-                </div>
-
-                <!-- Success Message -->
-                <div class="form-success" id="accomm-success" style="display:none;">
-
-                    <i class="fas fa-check-circle" style="margin-right:8px;"></i>
-
-                    <strong>
-                        Request submitted successfully!
-                    </strong>
-
-                </div>
-
-            </form>
-
-        </div>
-
-    </div>
-</div>
-
-<!-- ======================================================
-     ACCOMMODATION FORM SUBMISSION SCRIPT
-====================================================== -->
-<script>
-
-const ACCOMM_SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbzs7ellyfj0TOGrz6kXInNtTZe9bFeznxmk9MvX9bqOa7zu0htXVJFvEzOMNvGursvh/exec";
-
-async function submitAccomm(event) {
-
-    event.preventDefault();
-
-    const form = document.getElementById("accommForm");
-
-    const formData = new FormData(form);
-
-    const data = Object.fromEntries(formData.entries());
-	
-	data.formType = "accommodation";
-
-    try {
-
-        const response = await fetch(ACCOMM_SCRIPT_URL, {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-
-        const result = await response.json();
-
-        if (result.status === "success") {
-
-            document.getElementById("accomm-success").style.display = "block";
-
-            form.reset();
-
-            setTimeout(() => {
-                document.getElementById("accomm-success").style.display = "none";
-            }, 5000);
-
-        } else {
-
-            alert("Submission failed");
-            console.error(result);
-        }
-
-    } catch (error) {
-
-        console.error(error);
-
-        alert("Error submitting form");
-    }
-}
-
-</script>
 <!-- ==============================================================
      ██████  PAGE: CONTACT
 ============================================================== -->
