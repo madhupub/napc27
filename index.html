@@ -2348,7 +2348,7 @@ function fileToBase64(file) {
 <script>
 
 const ACCOMM_SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbwoK8NhxXokZA-EXihibeQI7NCMZUHXuC_ZFIaHMFj_58aSdiYMWd2W42xfdCozEeFZ/exec";
+"https://script.google.com/macros/s/AKfycbzs7ellyfj0TOGrz6kXInNtTZe9bFeznxmk9MvX9bqOa7zu0htXVJFvEzOMNvGursvh/exec";
 
 async function submitAccomm(event) {
 
@@ -2359,6 +2359,8 @@ async function submitAccomm(event) {
     const formData = new FormData(form);
 
     const data = Object.fromEntries(formData.entries());
+	
+	data.formType = "accommodation";
 
     try {
 
