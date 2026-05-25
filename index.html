@@ -1570,191 +1570,208 @@ GST @ 18%, as applicable.. Registration includes conference kit and materials, a
 
 
 
-        <!-- Accommodation Form -->
-        <div class="accomm-form">
+       <!-- Accommodation Form -->
+<div class="accomm-form">
 
-            <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:14px;">
-                <i class="fas fa-bed" style="color:var(--teal);margin-right:8px;"></i>
-                Accommodation Request Form
-            </h3>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:14px;">
+        <i class="fas fa-bed" style="color:var(--teal);margin-right:8px;"></i>
+        Accommodation Request Form
+    </h3>
 
-            <p style="font-size:0.85rem;color:var(--muted);margin:0 0 22px;line-height:1.6;">
-                Fill in the details below to request on-campus accommodation.
-            </p>
+    <p style="font-size:0.85rem;color:var(--muted);margin:0 0 22px;line-height:1.6;">
+        Fill in the details below to request on-campus accommodation.
+    </p>
 
-            <form id="accommForm" onsubmit="submitAccomm(event)">
+    <form id="accommForm">
 
-                <!-- Row 1 -->
-                <div class="form-row">
+        <!-- Row 1 -->
+        <div class="form-row">
 
-                    <div class="form-group">
-                        <label>Full Name <span class="req">*</span></label>
-                        <input type="text" name="fullName" class="form-control" required>
-                    </div>
+            <div class="form-group">
+                <label>Full Name <span class="req">*</span></label>
+                <input type="text" name="fullName" class="form-control" required>
+            </div>
 
-                    <div class="form-group">
-                        <label>Email Address <span class="req">*</span></label>
-                        <input type="email" name="email" class="form-control" required>
-                    </div>
-
-                </div>
-
-                <!-- Row 2 -->
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label>Mobile Number <span class="req">*</span></label>
-                        <input type="tel" name="mobile" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Institution / Organisation <span class="req">*</span></label>
-                        <input type="text" name="institution" class="form-control" required>
-                    </div>
-
-                </div>
-
-                <!-- Row 3 -->
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label>Paper Submission ID</label>
-                        <input type="text" name="paperId" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Designation <span class="req">*</span></label>
-
-                        <select name="designation" class="form-control" required>
-                            <option value="">Select designation</option>
-                            <option>PhD Student</option>
-                            <option>M.Tech / M.S. Student</option>
-                            <option>Research Scholar</option>
-                            <option>Faculty / Professor</option>
-                            <option>Scientist / Engineer</option>
-                            <option>Industry Professional</option>
-                            <option>Postdoctoral Researcher</option>
-                            <option>Other</option>
-                        </select>
-
-                    </div>
-
-                </div>
-
-                <!-- Accommodation Type -->
-                <div class="form-group">
-
-                    <label>
-                        Accommodation Type Requested
-                        <span class="req">*</span>
-                    </label>
-
-                    <div class="radio-group">
-
-                        <label class="radio-opt">
-                            <input type="radio" name="accommType" value="Student Hostel" required>
-
-                            <div>
-                                <div class="opt-label">
-                                    <strong>Student Hostel</strong>
-                                </div>
-
-                                <div class="opt-sub">
-                                    Shared room accommodation for students and scholars.
-                                </div>
-                            </div>
-                        </label>
-
-                        <label class="radio-opt">
-                            <input type="radio" name="accommType" value="Institute Guest House">
-
-                            <div>
-                                <div class="opt-label">
-                                    <strong>Institute Guest House</strong>
-                                </div>
-
-                                <div class="opt-sub">
-                                    AC room accommodation for faculty and delegates.
-                                </div>
-                            </div>
-                        </label>
-
-                    </div>
-                </div>
-
-                <!-- Dates -->
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label>Check-in Date <span class="req">*</span></label>
-                        <input type="date" name="checkin" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Check-out Date <span class="req">*</span></label>
-                        <input type="date" name="checkout" class="form-control" required>
-                    </div>
-
-                </div>
-
-                <!-- Occupancy -->
-                <div class="form-group">
-
-                    <label>Occupancy Preference</label>
-
-                    <select name="occupancy" class="form-control">
-                        <option value="">Select preference</option>
-                        <option>Single occupancy</option>
-                        <option>Shared occupancy</option>
-                        <option>No preference</option>
-                    </select>
-
-                </div>
-
-                <!-- Remarks -->
-                <div class="form-group">
-
-                    <label>Special Requirements / Remarks</label>
-
-                    <textarea
-                        name="remarks"
-                        class="form-control"
-                        rows="3"
-                        placeholder="Dietary restrictions, accessibility needs, etc."
-                    ></textarea>
-
-                </div>
-
-                <!-- Submit -->
-                <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-
-                    <button type="submit" class="submit-form-btn">
-                        <i class="fas fa-paper-plane"></i>
-                        Submit Request
-                    </button>
-
-                    <p style="font-size:0.78rem;color:var(--muted);margin:0;">
-                        Your request will be recorded securely.
-                    </p>
-
-                </div>
-
-                <!-- Success Message -->
-                <div class="form-success" id="accomm-success" style="display:none;">
-
-                    <i class="fas fa-check-circle" style="margin-right:8px;"></i>
-
-                    <strong>
-                        Request submitted successfully!
-                    </strong>
-
-                </div>
-
-            </form>
+            <div class="form-group">
+                <label>Email Address <span class="req">*</span></label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
 
         </div>
 
+        <!-- Row 2 -->
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Mobile Number <span class="req">*</span></label>
+                <input type="tel" name="mobile" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Institution / Organisation <span class="req">*</span></label>
+                <input type="text" name="institution" class="form-control" required>
+            </div>
+
+        </div>
+
+        <!-- Row 3 -->
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Paper Submission ID</label>
+                <input type="text" name="paperId" class="form-control">
+            </div>
+
+            <div class="form-group">
+
+                <label>Designation <span class="req">*</span></label>
+
+                <select name="designation" class="form-control" required>
+                    <option value="">Select designation</option>
+                    <option>PhD Student</option>
+                    <option>M.Tech / M.S. Student</option>
+                    <option>Research Scholar</option>
+                    <option>Faculty / Professor</option>
+                    <option>Scientist / Engineer</option>
+                    <option>Industry Professional</option>
+                    <option>Postdoctoral Researcher</option>
+                    <option>Other</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- Accommodation Type -->
+        <div class="form-group">
+
+            <label>
+                Accommodation Type Requested
+                <span class="req">*</span>
+            </label>
+
+            <div class="radio-group">
+
+                <label class="radio-opt">
+                    <input type="radio" name="accommType" value="Student Hostel" required>
+
+                    <div>
+                        <div class="opt-label">
+                            <strong>Student Hostel</strong>
+                        </div>
+
+                        <div class="opt-sub">
+                            Shared room accommodation for students and scholars.
+                        </div>
+                    </div>
+                </label>
+
+                <label class="radio-opt">
+                    <input type="radio" name="accommType" value="Institute Guest House">
+
+                    <div>
+                        <div class="opt-label">
+                            <strong>Institute Guest House</strong>
+                        </div>
+
+                        <div class="opt-sub">
+                            AC room accommodation for faculty and delegates.
+                        </div>
+                    </div>
+                </label>
+
+            </div>
+        </div>
+
+        <!-- Dates -->
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Check-in Date <span class="req">*</span></label>
+                <input type="date" name="checkin" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Check-out Date <span class="req">*</span></label>
+                <input type="date" name="checkout" class="form-control" required>
+            </div>
+
+        </div>
+
+        <!-- Occupancy -->
+        <div class="form-group">
+
+            <label>Occupancy Preference</label>
+
+            <select name="occupancy" class="form-control">
+                <option value="">Select preference</option>
+                <option>Single occupancy</option>
+                <option>Shared occupancy</option>
+                <option>No preference</option>
+            </select>
+
+        </div>
+
+        <!-- Remarks -->
+        <div class="form-group">
+
+            <label>Special Requirements / Remarks</label>
+
+            <textarea
+                name="remarks"
+                class="form-control"
+                rows="3"
+                placeholder="Dietary restrictions, accessibility needs, etc."
+            ></textarea>
+
+        </div>
+
+        <!-- Submit -->
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+
+            <button type="submit"
+                    id="accommSubmitBtn"
+                    class="submit-form-btn">
+
+                <i class="fas fa-paper-plane"></i>
+                Submit Request
+
+            </button>
+
+            <p style="font-size:0.78rem;color:var(--muted);margin:0;">
+                Your request will be recorded securely.
+            </p>
+
+        </div>
+
+        <!-- Success Message -->
+        <div class="form-success"
+             id="accomm-success"
+             style="display:none;background:#dcfce7;border:1px solid #16a34a;border-radius:8px;padding:16px 20px;font-size:0.9rem;color:#15803d;margin-top:15px;">
+
+            <i class="fas fa-check-circle" style="margin-right:8px;"></i>
+
+            <strong>
+                Request submitted successfully!
+            </strong>
+
+        </div>
+
+        <!-- Error Message -->
+        <div id="accomm-error"
+             style="display:none;background:#fee2e2;border:1px solid #dc2626;border-radius:8px;padding:16px 20px;font-size:0.9rem;color:#dc2626;margin-top:15px;">
+
+            <i class="fas fa-exclamation-circle" style="margin-right:8px;"></i>
+
+            <strong>
+                Submission failed. Please try again.
+            </strong>
+
+        </div>
+
+    	</form>
+
+		</div>
     </div>
 </div>
 
@@ -2000,7 +2017,7 @@ document
 // ======================================================
 
 document
-.getElementById("accommodationForm")
+.getElementById("accommForm")
 .addEventListener("submit", async function(e) {
 
     e.preventDefault();
@@ -2016,8 +2033,6 @@ document
     const submitBtn =
         document.getElementById("accommSubmitBtn");
 
-    // ===== PREVENT DOUBLE CLICK =====
-
     if (submitBtn.disabled) return;
 
     successBox.style.display = "none";
@@ -2029,10 +2044,6 @@ document
         '<i class="fas fa-spinner fa-spin"></i> Submitting...';
 
     try {
-
-        // ======================================================
-        // PAYLOAD
-        // ======================================================
 
         const payload = {
 
@@ -2072,10 +2083,6 @@ document
                 form.remarks.value.trim()
         };
 
-        // ======================================================
-        // SEND DATA
-        // ======================================================
-
         const response =
             await fetch(SCRIPT_URL, {
 
@@ -2099,10 +2106,6 @@ document
         const result =
             JSON.parse(text);
 
-        // ======================================================
-        // SUCCESS
-        // ======================================================
-
         if (result.status === "success") {
 
             successBox.style.display =
@@ -2110,10 +2113,6 @@ document
 
             form.reset();
         }
-
-        // ======================================================
-        // ERROR
-        // ======================================================
 
         else {
 
@@ -2129,10 +2128,6 @@ document
 
     }
 
-    // ======================================================
-    // ERROR
-    // ======================================================
-
     catch(err) {
 
         console.error(err);
@@ -2146,16 +2141,11 @@ document
             "block";
     }
 
-    // ======================================================
-    // RESET BUTTON
-    // ======================================================
-
     submitBtn.disabled = false;
 
     submitBtn.innerHTML =
-        '<i class="fas fa-paper-plane"></i> Submit Accommodation';
+        '<i class="fas fa-paper-plane"></i> Submit Request';
 });
-
 
 // ======================================================
 // FILE TO BASE64
