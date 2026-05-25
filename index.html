@@ -2091,20 +2091,35 @@ function fileToBase64(file) {
 </div>
 
 <!-- ==============================================================
-     ██████  PAGE: ACCOMMODATION (Change 5)
-     Form data submits to Google Sheets via Apps Script URL
+     PAGE: ACCOMMODATION
 ============================================================== -->
 <div id="page-accommodation" class="page">
-    <div class="page-header"><h2>Accommodation</h2><p>On-campus stay for conference delegates</p></div>
+
+    <div class="page-header">
+        <h2>Accommodation</h2>
+        <p>On-campus stay for conference delegates</p>
+    </div>
+
     <div class="page-body">
 
+        <!-- Accommodation Info -->
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px;">
+
             <!-- Student Hostel -->
             <div class="card" style="border-left:4px solid var(--teal);margin-bottom:0;">
-                <div class="card-title"><i class="fas fa-graduation-cap" style="color:var(--teal);margin-right:8px;"></i>Student Hostel</div>
+                <div class="card-title">
+                    <i class="fas fa-graduation-cap" style="color:var(--teal);margin-right:8px;"></i>
+                    Student Hostel
+                </div>
+
                 <p style="font-size:0.88rem;line-height:1.8;color:var(--muted);margin:0 0 10px;">
-                    Hostel accommodation on IIT Hyderabad campus is available for <strong style="color:var(--navy);">student delegates and research scholars</strong> on request. Limited rooms — first come, first served.
+                    Hostel accommodation on IIT Hyderabad campus is available for
+                    <strong style="color:var(--navy);">
+                        student delegates and research scholars
+                    </strong>
+                    on request.
                 </p>
+
                 <ul style="font-size:0.83rem;color:var(--muted);line-height:2;padding-left:18px;margin:0;">
                     <li>Shared / single occupancy rooms</li>
                     <li>Mess facility available</li>
@@ -2112,264 +2127,276 @@ function fileToBase64(file) {
                     <li>Valid student ID required</li>
                 </ul>
             </div>
+
             <!-- Guest House -->
             <div class="card" style="border-left:4px solid var(--gold);margin-bottom:0;">
-                <div class="card-title"><i class="fas fa-hotel" style="color:var(--gold);margin-right:8px;"></i>Institute Guest House</div>
+
+                <div class="card-title">
+                    <i class="fas fa-hotel" style="color:var(--gold);margin-right:8px;"></i>
+                    Institute Guest House
+                </div>
+
                 <p style="font-size:0.88rem;line-height:1.8;color:var(--muted);margin:0 0 10px;">
-                    The IIT Hyderabad Institute Guest House is available for <strong style="color:var(--navy);">faculty, industry delegates, and other non-student participants</strong> on request.
+                    IIT Hyderabad Guest House is available for
+                    <strong style="color:var(--navy);">
+                        faculty, scientists and industry delegates
+                    </strong>
+                    on request.
                 </p>
+
                 <ul style="font-size:0.83rem;color:var(--muted);line-height:2;padding-left:18px;margin:0;">
-                    <li>AC rooms, attached bathrooms</li>
+                    <li>AC rooms with attached bathrooms</li>
                     <li>Catering available on campus</li>
                     <li>Subject to availability</li>
                     <li>Priority for outstation delegates</li>
                 </ul>
+
             </div>
         </div>
 
-        <!-- GUEST HOUSE CHARGES TABLE (Official Visitors only) -->
-        <div class="card" style="margin-bottom:28px;">
-            <div class="card-title"><i class="fas fa-hotel" style="color:var(--gold);margin-right:8px;"></i>IIT Hyderabad Guest House Charges (w.e.f. 01.01.2026)</div>
-            <p style="font-size:0.82rem;color:var(--muted);margin:0 0 14px;">Tariff shown is for <strong style="color:var(--navy);">Official Visitors</strong> (Plus GST 5%). Subject to availability.</p>
-            <div style="overflow-x:auto;">
-                <table style="width:100%;border-collapse:collapse;font-size:0.87rem;">
-                    <thead>
-                        <tr style="background:var(--navy);color:#fff;">
-                            <th style="padding:10px 14px;text-align:center;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.05em;white-space:nowrap;">Sl. No.</th>
-                            <th style="padding:10px 14px;text-align:left;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.05em;">Room Type</th>
-                            <th style="padding:10px 14px;text-align:left;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.05em;">Occupancy Type</th>
-                            <th style="padding:10px 14px;text-align:center;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.05em;">Tariff (INR)<br><span style="font-weight:400;font-size:0.72rem;opacity:0.85;">+ GST 5%</span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="background:#f8fafc;">
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;color:var(--muted);">1</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;font-weight:600;color:var(--navy);">Standard Room</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;">Single Occupancy</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;font-weight:700;color:var(--blue);">₹ 1,600</td>
-                        </tr>
-                        <tr>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;color:var(--muted);"></td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;"></td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;">Double Occupancy</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;font-weight:700;color:var(--blue);">₹ 2,200</td>
-                        </tr>
-                        <tr style="background:#f8fafc;">
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;color:var(--muted);">2</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;font-weight:600;color:var(--navy);">Accessible Room</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;">Single / Double</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;font-weight:700;color:var(--blue);">₹ 1,600</td>
-                        </tr>
-                        <tr>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;color:var(--muted);">3</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;font-weight:600;color:var(--navy);">Executive Room</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;">Single Occupancy</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;font-weight:700;color:var(--blue);">₹ 2,200</td>
-                        </tr>
-                        <tr style="background:#f8fafc;">
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;color:var(--muted);"></td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;"></td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;">Double Occupancy</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;font-weight:700;color:var(--blue);">₹ 2,500</td>
-                        </tr>
-                        <tr>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;color:var(--muted);"></td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;"></td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;">Triple Occupancy</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;font-weight:700;color:var(--blue);">₹ 2,800</td>
-                        </tr>
-                        <tr style="background:#f8fafc;">
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;color:var(--muted);">4</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;font-weight:600;color:var(--navy);">Suite Room</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;">Single / Double</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;font-weight:700;color:var(--blue);">₹ 3,000</td>
-                        </tr>
-                        <tr>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;color:var(--muted);">5</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;font-weight:600;color:var(--navy);">Super Suite Room</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;">Single / Double</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;font-weight:700;color:var(--blue);">₹ 3,200</td>
-                        </tr>
-                        <tr style="background:#f8fafc;">
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;color:var(--muted);">6</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;font-weight:600;color:var(--navy);">Extra Bed</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;">Per extra bed</td>
-                            <td style="padding:9px 14px;border-bottom:1px solid #f1f5f9;text-align:center;font-weight:700;color:var(--blue);">₹ 500</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p style="font-size:0.76rem;color:var(--muted);margin-top:10px;">* All tariffs are exclusive of GST @ 5%. Rates effective from 01.01.2026. Subject to change without prior notice.</p>
-        </div>
-
-        <!-- ACCOMMODATION REQUEST FORM -->
+        <!-- Accommodation Form -->
         <div class="accomm-form">
-            <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:14px;">
-                <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:0.04em;margin:0;">
-                    <i class="fas fa-bed" style="color:var(--teal);margin-right:8px;"></i>Accommodation Request Form
-                </h3>
-                <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-                    <!-- Admin panel toggle -->
-                    <button type="button" onclick="toggleAdminPanel()" style="background:#64748b;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;padding:8px 16px;border:none;border-radius:6px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
-                        <i class="fas fa-lock"></i> Admin
-                    </button>
-                </div>
-                <!-- Admin panel — password protected -->
-                <div id="admin-panel" style="display:none;margin-top:12px;padding:14px;background:#f8fafc;border:1px solid var(--border);border-radius:8px;">
-                    <div id="admin-login" style="">
-                        <input type="password" id="admin-pwd" class="form-control" placeholder="Enter admin password" style="width:220px;display:inline-block;margin-right:8px;">
-                        <button type="button" onclick="checkAdminPwd()" class="submit-form-btn" style="padding:8px 18px;font-size:0.82rem;">Unlock</button>
-                        <span id="admin-err" style="color:#dc2626;font-size:0.78rem;margin-left:8px;"></span>
-                    </div>
-                    <div id="admin-controls" style="display:none;gap:8px;flex-wrap:wrap;align-items:center;">
-                        <label for="xlsxFileInput" style="background:#fff;color:var(--navy);border:1.5px solid var(--navy);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;padding:8px 16px;border-radius:6px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
-                            <i class="fas fa-folder-open"></i> Load NAPC_Accomodation.xlsx
-                        </label>
-                        <input type="file" id="xlsxFileInput" accept=".xlsx,.xls" style="display:none;" onchange="loadExistingXlsx(this)">
-                        <button type="button" onclick="exportAccommXlsx()" style="background:#1d7645;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;padding:8px 16px;border:none;border-radius:6px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
-                            <i class="fas fa-file-excel"></i> Download Updated .xlsx
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- Workflow tip — admin only -->
-            <div id="accomm-workflow-tip" style="display:none;background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:0.82rem;color:#1e40af;line-height:1.6;">
-                <i class="fas fa-info-circle" style="margin-right:6px;"></i>
-                <strong>How it works:</strong> Each submission is saved in-browser. When you click <em>Download Updated .xlsx</em>, it downloads the full <code>NAPC_Accomodation.xlsx</code> with all entries — replace the old file with this one. To continue from a previous session, click <em>Load NAPC_Accomodation.xlsx</em> first to import existing rows.
-            </div>
-            <p style="font-size:0.85rem;color:var(--muted);margin:0 0 22px;line-height:1.6;">Fill in the details below to request on-campus accommodation. Availability is not guaranteed.</p>
+
+            <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:14px;">
+                <i class="fas fa-bed" style="color:var(--teal);margin-right:8px;"></i>
+                Accommodation Request Form
+            </h3>
+
+            <p style="font-size:0.85rem;color:var(--muted);margin:0 0 22px;line-height:1.6;">
+                Fill in the details below to request on-campus accommodation.
+            </p>
 
             <form id="accommForm" onsubmit="submitAccomm(event)">
+
+                <!-- Row 1 -->
                 <div class="form-row">
+
                     <div class="form-group">
                         <label>Full Name <span class="req">*</span></label>
-                        <input type="text" name="fullName" class="form-control" placeholder="Dr. / Prof. / Mr. / Ms." required>
+                        <input type="text" name="fullName" class="form-control" required>
                     </div>
+
                     <div class="form-group">
                         <label>Email Address <span class="req">*</span></label>
-                        <input type="email" name="email" class="form-control" placeholder="you@institute.ac.in" required>
+                        <input type="email" name="email" class="form-control" required>
                     </div>
+
                 </div>
+
+                <!-- Row 2 -->
                 <div class="form-row">
+
                     <div class="form-group">
                         <label>Mobile Number <span class="req">*</span></label>
-                        <input type="tel" name="mobile" class="form-control" placeholder="+91 XXXXX XXXXX" required>
+                        <input type="tel" name="mobile" class="form-control" required>
                     </div>
+
                     <div class="form-group">
                         <label>Institution / Organisation <span class="req">*</span></label>
-                        <input type="text" name="institution" class="form-control" placeholder="IIT / DRDO / Industry..." required>
+                        <input type="text" name="institution" class="form-control" required>
                     </div>
+
                 </div>
+
+                <!-- Row 3 -->
                 <div class="form-row">
+
                     <div class="form-group">
-                        <label>Paper Submission ID <span style="font-weight:400;color:var(--muted);font-size:0.75rem;">(if applicable)</span></label>
-                        <input type="text" name="paperId" class="form-control" placeholder="e.g. NAPC2027-042">
+                        <label>Paper Submission ID</label>
+                        <input type="text" name="paperId" class="form-control">
                     </div>
+
                     <div class="form-group">
+
                         <label>Designation <span class="req">*</span></label>
+
                         <select name="designation" class="form-control" required>
                             <option value="">Select designation</option>
                             <option>PhD Student</option>
                             <option>M.Tech / M.S. Student</option>
                             <option>Research Scholar</option>
                             <option>Faculty / Professor</option>
-                            <option>Scientist / Engineer (DRDO / ISRO / NAL etc.)</option>
+                            <option>Scientist / Engineer</option>
                             <option>Industry Professional</option>
                             <option>Postdoctoral Researcher</option>
                             <option>Other</option>
                         </select>
+
                     </div>
+
                 </div>
 
+                <!-- Accommodation Type -->
                 <div class="form-group">
-                    <label>Accommodation Type Requested <span class="req">*</span></label>
+
+                    <label>
+                        Accommodation Type Requested
+                        <span class="req">*</span>
+                    </label>
+
                     <div class="radio-group">
+
                         <label class="radio-opt">
                             <input type="radio" name="accommType" value="Student Hostel" required>
+
                             <div>
-                                <div class="opt-label"><strong>Student Hostel</strong> — for registered students &amp; research scholars</div>
-                                <div class="opt-sub">Shared room, mess facility. Free / nominal charges. Valid student ID required.</div>
+                                <div class="opt-label">
+                                    <strong>Student Hostel</strong>
+                                </div>
+
+                                <div class="opt-sub">
+                                    Shared room accommodation for students and scholars.
+                                </div>
                             </div>
                         </label>
+
                         <label class="radio-opt">
                             <input type="radio" name="accommType" value="Institute Guest House">
+
                             <div>
-                                <div class="opt-label"><strong>Institute Guest House</strong> — for faculty, scientists &amp; industry delegates</div>
-                                <div class="opt-sub">AC room, attached bathroom. Chargeable. Subject to availability.</div>
+                                <div class="opt-label">
+                                    <strong>Institute Guest House</strong>
+                                </div>
+
+                                <div class="opt-sub">
+                                    AC room accommodation for faculty and delegates.
+                                </div>
                             </div>
                         </label>
+
                     </div>
                 </div>
 
+                <!-- Dates -->
                 <div class="form-row">
+
                     <div class="form-group">
                         <label>Check-in Date <span class="req">*</span></label>
-                        <input type="date" name="checkin" class="form-control" min="2027-01-03" max="2027-01-04" required>
+                        <input type="date" name="checkin" class="form-control" required>
                     </div>
+
                     <div class="form-group">
                         <label>Check-out Date <span class="req">*</span></label>
-                        <input type="date" name="checkout" class="form-control" min="2027-01-06" max="2027-01-08" required>
+                        <input type="date" name="checkout" class="form-control" required>
                     </div>
+
                 </div>
 
+                <!-- Occupancy -->
                 <div class="form-group">
+
                     <label>Occupancy Preference</label>
+
                     <select name="occupancy" class="form-control">
                         <option value="">Select preference</option>
                         <option>Single occupancy</option>
-                        <option>Shared (2-person room)</option>
+                        <option>Shared occupancy</option>
                         <option>No preference</option>
                     </select>
+
                 </div>
 
+                <!-- Remarks -->
                 <div class="form-group">
+
                     <label>Special Requirements / Remarks</label>
-                    <textarea name="remarks" class="form-control" rows="3" placeholder="Dietary restrictions, accessibility needs, sharing preference with a colleague, etc."></textarea>
+
+                    <textarea
+                        name="remarks"
+                        class="form-control"
+                        rows="3"
+                        placeholder="Dietary restrictions, accessibility needs, etc."
+                    ></textarea>
+
                 </div>
 
+                <!-- Submit -->
                 <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+
                     <button type="submit" class="submit-form-btn">
-                        <i class="fas fa-paper-plane"></i> Submit Request
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Request
                     </button>
-                    <p style="font-size:0.78rem;color:var(--muted);margin:0;">Submission is stored securely. Confirmation will be sent by email.</p>
+
+                    <p style="font-size:0.78rem;color:var(--muted);margin:0;">
+                        Your request will be recorded securely.
+                    </p>
+
                 </div>
 
-                <div class="form-success" id="accomm-success">
+                <!-- Success Message -->
+                <div class="form-success" id="accomm-success" style="display:none;">
+
                     <i class="fas fa-check-circle" style="margin-right:8px;"></i>
-                    <strong>Request submitted successfully!</strong> Entry saved. For urgent queries, email napc2027@mae.iith.ac.in.
+
+                    <strong>
+                        Request submitted successfully!
+                    </strong>
+
                 </div>
+
             </form>
 
-            <!-- Live registrations table -->
-            <div id="accomm-table-wrap" style="margin-top:28px;display:none;">
-                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-                    <p style="font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;text-transform:uppercase;color:var(--navy);margin:0;letter-spacing:0.04em;"><i class="fas fa-table" style="color:var(--teal);margin-right:6px;"></i>Submitted Registrations</p>
-                    <span id="accomm-count" style="background:var(--teal);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:700;padding:3px 12px;border-radius:20px;"></span>
-                </div>
-                <div style="overflow-x:auto;">
-                    <table id="accomm-table" style="width:100%;border-collapse:collapse;font-size:0.8rem;">
-                        <thead>
-                            <tr style="background:var(--navy);color:#fff;">
-                                <th style="padding:10px 12px;text-align:left;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.05em;white-space:nowrap;">#</th>
-                                <th style="padding:10px 12px;text-align:left;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.05em;white-space:nowrap;">Full Name</th>
-                                <th style="padding:10px 12px;text-align:left;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.05em;white-space:nowrap;">Email</th>
-                                <th style="padding:10px 12px;text-align:left;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.05em;white-space:nowrap;">Mobile</th>
-                                <th style="padding:10px 12px;text-align:left;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.05em;white-space:nowrap;">Institution</th>
-                                <th style="padding:10px 12px;text-align:left;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.05em;white-space:nowrap;">Accommodation</th>
-                                <th style="padding:10px 12px;text-align:left;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.05em;white-space:nowrap;">Check-in</th>
-                                <th style="padding:10px 12px;text-align:left;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.05em;white-space:nowrap;">Check-out</th>
-                                <th style="padding:10px 12px;text-align:left;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.05em;white-space:nowrap;">Timestamp</th>
-                            </tr>
-                        </thead>
-                        <tbody id="accomm-tbody"></tbody>
-                    </table>
-                </div>
-            </div>
-        </div><!-- /accomm-form -->
+        </div>
 
     </div>
 </div>
 
+<!-- ======================================================
+     ACCOMMODATION FORM SUBMISSION SCRIPT
+====================================================== -->
+<script>
+
+const ACCOMM_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbwoK8NhxXokZA-EXihibeQI7NCMZUHXuC_ZFIaHMFj_58aSdiYMWd2W42xfdCozEeFZ/exec";
+
+async function submitAccomm(event) {
+
+    event.preventDefault();
+
+    const form = document.getElementById("accommForm");
+
+    const formData = new FormData(form);
+
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+
+        const response = await fetch(ACCOMM_SCRIPT_URL, {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        const result = await response.json();
+
+        if (result.status === "success") {
+
+            document.getElementById("accomm-success").style.display = "block";
+
+            form.reset();
+
+            setTimeout(() => {
+                document.getElementById("accomm-success").style.display = "none";
+            }, 5000);
+
+        } else {
+
+            alert("Submission failed");
+            console.error(result);
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Error submitting form");
+    }
+}
+
+</script>
 <!-- ==============================================================
      ██████  PAGE: CONTACT
 ============================================================== -->
