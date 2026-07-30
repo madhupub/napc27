@@ -170,29 +170,28 @@
             #hamburger { display: block; }
         }
 
-        /* ============================================================
-           ANNOUNCEMENT TICKER
-        ============================================================ */
-        .ticker-bar { background: var(--gold); color: #fff; overflow: hidden; white-space: nowrap; padding: 7px 0; }
-        .ticker-track { display: inline-block; animation: ticker 40s linear infinite; }
-        .ticker-bar:hover .ticker-track { animation-play-state: paused; }
-        @keyframes ticker { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
-		
-		.deadline-glow {
-  		color: #ff0000;
-    	font-weight: 800;
-    	animation: redGlow 1s ease-in-out infinite alternate;
-		}
+/* ============================================================
+   ANNOUNCEMENT TICKER
+============================================================ */
+.ticker-bar { background: var(--gold); color: #fff; overflow: hidden; white-space: nowrap; padding: 7px 0; }
+.ticker-track { display: inline-block; animation: ticker 40s linear infinite; }
+.ticker-bar:hover .ticker-track { animation-play-state: paused; }
 
-@keyframes redGlow {
-    from {
-        text-shadow: 0 0 4px #ff0000, 0 0 8px #ff0000;
-    }
-    to {
-        text-shadow: 0 0 8px #ff0000, 0 0 18px #ff0000, 0 0 30px #ff0000;
-    }
+@keyframes ticker {
+    from { transform: translateX(100vw); }
+    to { transform: translateX(-100%); }
 }
 
+/* Red glowing extended deadline */
+.deadline-glow {
+    color: #ff0000 !important;
+    font-weight: 800;
+    text-shadow:
+        0 0 4px #ff0000,
+        0 0 8px #ff0000,
+        0 0 15px #ff0000,
+        0 0 25px #ff0000;
+}
         /* ============================================================
            HERO — light gradient, highlight on title
         ============================================================ */
