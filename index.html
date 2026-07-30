@@ -177,6 +177,21 @@
         .ticker-track { display: inline-block; animation: ticker 40s linear infinite; }
         .ticker-bar:hover .ticker-track { animation-play-state: paused; }
         @keyframes ticker { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
+		
+		.deadline-glow {
+  		color: #ff0000;
+    	font-weight: 800;
+    	animation: redGlow 1s ease-in-out infinite alternate;
+		}
+
+@keyframes redGlow {
+    from {
+        text-shadow: 0 0 4px #ff0000, 0 0 8px #ff0000;
+    }
+    to {
+        text-shadow: 0 0 8px #ff0000, 0 0 18px #ff0000, 0 0 30px #ff0000;
+    }
+}
 
         /* ============================================================
            HERO — light gradient, highlight on title
