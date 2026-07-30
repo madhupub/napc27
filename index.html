@@ -184,10 +184,16 @@
 
 /* Red glowing extended deadline */
 .deadline-glow {
-    color: #ff0000 !important;
-    font-weight: 800;
+    color: #ff0000;
+    font-weight: 900;
+
+    /* White outline */
+    -webkit-text-stroke: 0.6px #ffffff;
+
+    /* Red glow */
     text-shadow:
-        0 0 4px #ff0000,
+        0 0 2px #ffffff,
+        0 0 4px #ffffff,
         0 0 8px #ff0000,
         0 0 15px #ff0000,
         0 0 25px #ff0000;
