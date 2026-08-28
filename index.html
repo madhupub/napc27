@@ -3032,15 +3032,13 @@ PAGE: CONTACT
 <!-- ==============================================================
      NAPC 2027 CONTACT FORM - GOOGLE APPS SCRIPT
 ============================================================== -->
-
-
 <script>
 
 const CONTACT_SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbwwIJoKWec9ZnzaA_ujlqr6lhswZVkvRFX19uE_Nee-8SixtWIXAg6gFxhPjt5EddJEkw/exec";
 
 
-document.getElementById("contactForm").addEventListener("submit", async function(event) {
+document.getElementById("contactForm").addEventListener("submit", function(event) {
 
     event.preventDefault();
 
@@ -3048,6 +3046,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
     const submitBtn =
         document.getElementById("contactSubmitBtn");
+
 
     // ----------------------------------------------------------
     // GET FORM VALUES
@@ -3081,6 +3080,10 @@ document.getElementById("contactForm").addEventListener("submit", async function
     }
 
 
+    // ----------------------------------------------------------
+    // EMAIL VALIDATION
+    // ----------------------------------------------------------
+
     const emailRegex =
         /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -3096,7 +3099,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
 
     // ----------------------------------------------------------
-    // SHOW SENDING
+    // BUTTON
     // ----------------------------------------------------------
 
     submitBtn.disabled = true;
@@ -3106,63 +3109,53 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
 
     // ----------------------------------------------------------
-    // SEND DATA TO GOOGLE APPS SCRIPT
+    // CREATE FORM DATA
     // ----------------------------------------------------------
 
-    try {
+    const formData = new URLSearchParams();
 
-        const response = await fetch(
-            CONTACT_SCRIPT_URL,
-            {
-                method: "POST",
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("subject", subject);
+    formData.append("message", message);
 
-                headers: {
-                    "Content-Type":
-                        "text/plain;charset=utf-8"
-                },
 
-                body: JSON.stringify({
+    // ----------------------------------------------------------
+    // SEND TO GOOGLE APPS SCRIPT
+    // ----------------------------------------------------------
 
-                    name: name,
+    fetch(
+        CONTACT_SCRIPT_URL,
+        {
+            method: "POST",
 
-                    email: email,
+            mode: "no-cors",
 
-                    subject: subject,
+            headers: {
+                "Content-Type":
+                    "application/x-www-form-urlencoded;charset=UTF-8"
+            },
 
-                    message: message
+            body: formData.toString()
+        }
+    )
 
-                })
-            }
+    .then(function() {
+
+        // ------------------------------------------------------
+        // SUCCESS
+        // ------------------------------------------------------
+
+        showContactStatus(
+            "Thank you! Your message has been sent successfully. The NAPC 2027 organising team will get back to you shortly.",
+            true
         );
 
+        form.reset();
 
-        // ------------------------------------------------------
-        // READ GOOGLE SCRIPT RESPONSE
-        // ------------------------------------------------------
+    })
 
-        const result = await response.json();
-
-
-        if (result.success) {
-
-            showContactStatus(
-                "Thank you! Your message has been sent successfully. The NAPC 2027 organising team will get back to you shortly.",
-                true
-            );
-
-            form.reset();
-
-        } else {
-
-            throw new Error(
-                result.message ||
-                "Unable to submit your message."
-            );
-
-        }
-
-
-    } catch (error) {
+    .catch(function(error) {
 
         console.error(
             "NAPC Contact Form Error:",
@@ -3174,17 +3167,16 @@ document.getElementById("contactForm").addEventListener("submit", async function
             false
         );
 
-    }
+    })
 
+    .finally(function() {
 
-    // ----------------------------------------------------------
-    // RESTORE BUTTON
-    // ----------------------------------------------------------
+        submitBtn.disabled = false;
 
-    submitBtn.disabled = false;
+        submitBtn.innerHTML =
+            '<i class="fas fa-paper-plane"></i> Send Message';
 
-    submitBtn.innerHTML =
-        '<i class="fas fa-paper-plane"></i> Send Message';
+    });
 
 });
 
