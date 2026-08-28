@@ -2770,9 +2770,8 @@ function fileToBase64(file) {
 </div>
 
 
-```html
 <!-- ==============================================================
-     ██████  PAGE: CONTACT
+PAGE: CONTACT
 ============================================================== -->
 <div id="page-contact" class="page">
 
@@ -3034,6 +3033,7 @@ function fileToBase64(file) {
      NAPC 2027 CONTACT FORM - GOOGLE APPS SCRIPT
 ============================================================== -->
 
+
 <script>
 
 const CONTACT_SCRIPT_URL =
@@ -3048,10 +3048,6 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
     const submitBtn =
         document.getElementById("contactSubmitBtn");
-
-    const status =
-        document.getElementById("contactStatus");
-
 
     // ----------------------------------------------------------
     // GET FORM VALUES
@@ -3085,10 +3081,6 @@ document.getElementById("contactForm").addEventListener("submit", async function
     }
 
 
-    // ----------------------------------------------------------
-    // EMAIL VALIDATION
-    // ----------------------------------------------------------
-
     const emailRegex =
         /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -3104,7 +3096,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
 
     // ----------------------------------------------------------
-    // BUTTON - SENDING
+    // SHOW SENDING
     // ----------------------------------------------------------
 
     submitBtn.disabled = true;
@@ -3114,64 +3106,66 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
 
     // ----------------------------------------------------------
-    // DATA
-    // ----------------------------------------------------------
-
-    const data = {
-
-        name: name,
-
-        email: email,
-
-        subject: subject,
-
-        message: message
-
-    };
-
-
-    // ----------------------------------------------------------
-    // SEND TO GOOGLE APPS SCRIPT
+    // SEND DATA TO GOOGLE APPS SCRIPT
     // ----------------------------------------------------------
 
     try {
 
-        await fetch(
+        const response = await fetch(
             CONTACT_SCRIPT_URL,
             {
                 method: "POST",
-
-                mode: "no-cors",
 
                 headers: {
                     "Content-Type":
                         "text/plain;charset=utf-8"
                 },
 
-                body: JSON.stringify(data)
+                body: JSON.stringify({
+
+                    name: name,
+
+                    email: email,
+
+                    subject: subject,
+
+                    message: message
+
+                })
             }
         );
 
 
         // ------------------------------------------------------
-        // SUCCESS
+        // READ GOOGLE SCRIPT RESPONSE
         // ------------------------------------------------------
 
-        showContactStatus(
-            "Thank you! Your message has been sent successfully. The NAPC 2027 organising team will get back to you shortly.",
-            true
-        );
+        const result = await response.json();
 
 
-        // Clear form
-        form.reset();
+        if (result.success) {
 
-    }
+            showContactStatus(
+                "Thank you! Your message has been sent successfully. The NAPC 2027 organising team will get back to you shortly.",
+                true
+            );
 
-    catch(error) {
+            form.reset();
+
+        } else {
+
+            throw new Error(
+                result.message ||
+                "Unable to submit your message."
+            );
+
+        }
+
+
+    } catch (error) {
 
         console.error(
-            "Contact Form Error:",
+            "NAPC Contact Form Error:",
             error
         );
 
@@ -3210,9 +3204,11 @@ function showContactStatus(message, success) {
 
     if (success) {
 
-        status.style.background = "#dcfce7";
+        status.style.background =
+            "#dcfce7";
 
-        status.style.color = "#166534";
+        status.style.color =
+            "#166534";
 
         status.style.border =
             "1px solid #86efac";
@@ -3221,13 +3217,13 @@ function showContactStatus(message, success) {
             '<i class="fas fa-check-circle"></i> ' +
             message;
 
-    }
+    } else {
 
-    else {
+        status.style.background =
+            "#fee2e2";
 
-        status.style.background = "#fee2e2";
-
-        status.style.color = "#991b1b";
+        status.style.color =
+            "#991b1b";
 
         status.style.border =
             "1px solid #fca5a5";
@@ -3240,6 +3236,7 @@ function showContactStatus(message, success) {
 }
 
 </script>
+
 
 
 <!-- ============================================================
