@@ -2770,56 +2770,477 @@ function fileToBase64(file) {
 </div>
 
 
+```html
 <!-- ==============================================================
      ██████  PAGE: CONTACT
 ============================================================== -->
 <div id="page-contact" class="page">
-    <div class="page-header"><h2>Contact Us</h2><p>Get in touch with the NAPC 2027 organising team</p></div>
-    <div class="page-body">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-            <div>
-                <div class="card">
-                    <div class="card-title">Contact Information</div>
-                    <div style="display:flex;flex-direction:column;gap:14px;">
-                        <div style="display:flex;gap:12px;align-items:flex-start;">
-                            <div style="width:36px;height:36px;background:var(--blue-lt);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-envelope" style="color:var(--blue);"></i></div>
-                            <div><p style="font-size:0.78rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin:0 0 2px;">Email</p><a href="mailto:napc2027@mae.iith.ac.in" style="color:var(--blue);font-size:0.9rem;">napc2027@mae.iith.ac.in</a></div>
-                        </div>
-                        <div style="display:flex;gap:12px;align-items:flex-start;">
-                            <div style="width:36px;height:36px;background:var(--blue-lt);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-phone" style="color:var(--blue);"></i></div>
-                            <div><p style="font-size:0.78rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin:0 0 2px;">Phone</p><p style="font-size:0.9rem;color:var(--text);margin:0;">+91 040-2301 6684</p></div>
-                        </div>
-                        <div style="display:flex;gap:12px;align-items:flex-start;">
-                            <div style="width:36px;height:36px;background:var(--blue-lt);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-map-marker-alt" style="color:var(--blue);"></i></div>
-                            <div><p style="font-size:0.78rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin:0 0 2px;">Address</p><p style="font-size:0.88rem;color:var(--text);line-height:1.7;margin:0;">MAE Dept., IIT Hyderabad<br>Kandi, Sangareddy – 502284<br>Telangana, India</p></div>
-                        </div>
-                        <div style="display:flex;gap:12px;align-items:flex-start;">
-                            <div style="width:36px;height:36px;background:var(--blue-lt);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-globe" style="color:var(--blue);"></i></div>
-                            <div><p style="font-size:0.78rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin:0 0 2px;">Website</p><a href="https://mae.iith.ac.in" target="_blank" style="color:var(--blue);font-size:0.9rem;">mae.iith.ac.in</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="accomm-form">
-                    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;color:var(--navy);text-transform:uppercase;margin:0 0 18px;">Send a Message</h3>
-                    <form onsubmit="handleContact(event)">
-                        <div class="form-group"><label>Name <span class="req">*</span></label><input type="text" class="form-control" required></div>
-                        <div class="form-group"><label>Email <span class="req">*</span></label><input type="email" class="form-control" required></div>
-                        <div class="form-group"><label>Subject</label>
-                            <select class="form-control">
-                                <option>General Inquiry</option><option>Paper Submission</option>
-                                <option>Registration</option><option>Sponsorship</option><option>Accommodation</option>
-                            </select>
-                        </div>
-                        <div class="form-group"><label>Message <span class="req">*</span></label><textarea class="form-control" rows="4" required></textarea></div>
-                        <button type="submit" class="submit-form-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+
+    <div class="page-header">
+        <h2>Contact Us</h2>
+        <p>Get in touch with the NAPC 2027 organising team</p>
     </div>
+
+    <div class="page-body">
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+
+            <!-- ==================================================
+                 CONTACT INFORMATION
+            ================================================== -->
+            <div>
+
+                <div class="card">
+
+                    <div class="card-title">
+                        Contact Information
+                    </div>
+
+                    <div style="display:flex;flex-direction:column;gap:14px;">
+
+                        <!-- EMAIL -->
+                        <div style="display:flex;gap:12px;align-items:flex-start;">
+
+                            <div style="width:36px;height:36px;background:var(--blue-lt);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <i class="fas fa-envelope" style="color:var(--blue);"></i>
+                            </div>
+
+                            <div>
+                                <p style="font-size:0.78rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin:0 0 2px;">
+                                    Email
+                                </p>
+
+                                <a href="mailto:napc2027@mae.iith.ac.in"
+                                   style="color:var(--blue);font-size:0.9rem;">
+                                    napc2027@mae.iith.ac.in
+                                </a>
+                            </div>
+
+                        </div>
+
+
+                        <!-- PHONE -->
+                        <div style="display:flex;gap:12px;align-items:flex-start;">
+
+                            <div style="width:36px;height:36px;background:var(--blue-lt);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <i class="fas fa-phone" style="color:var(--blue);"></i>
+                            </div>
+
+                            <div>
+                                <p style="font-size:0.78rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin:0 0 2px;">
+                                    Phone
+                                </p>
+
+                                <p style="font-size:0.9rem;color:var(--text);margin:0;">
+                                    +91 040-2301 6684
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ADDRESS -->
+                        <div style="display:flex;gap:12px;align-items:flex-start;">
+
+                            <div style="width:36px;height:36px;background:var(--blue-lt);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <i class="fas fa-map-marker-alt" style="color:var(--blue);"></i>
+                            </div>
+
+                            <div>
+                                <p style="font-size:0.78rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin:0 0 2px;">
+                                    Address
+                                </p>
+
+                                <p style="font-size:0.88rem;color:var(--text);line-height:1.7;margin:0;">
+                                    MAE Dept., IIT Hyderabad<br>
+                                    Kandi, Sangareddy – 502284<br>
+                                    Telangana, India
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- WEBSITE -->
+                        <div style="display:flex;gap:12px;align-items:flex-start;">
+
+                            <div style="width:36px;height:36px;background:var(--blue-lt);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <i class="fas fa-globe" style="color:var(--blue);"></i>
+                            </div>
+
+                            <div>
+                                <p style="font-size:0.78rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin:0 0 2px;">
+                                    Website
+                                </p>
+
+                                <a href="https://mae.iith.ac.in"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   style="color:var(--blue);font-size:0.9rem;">
+                                    mae.iith.ac.in
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 SEND MESSAGE FORM
+            ================================================== -->
+            <div>
+
+                <div class="accomm-form">
+
+                    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;color:var(--navy);text-transform:uppercase;margin:0 0 18px;">
+                        Send a Message
+                    </h3>
+
+
+                    <!-- CONTACT FORM -->
+                    <form id="contactForm">
+
+                        <!-- NAME -->
+                        <div class="form-group">
+
+                            <label>
+                                Name <span class="req">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="contactName"
+                                name="name"
+                                class="form-control"
+                                placeholder="Enter your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+                        <div class="form-group">
+
+                            <label>
+                                Email <span class="req">*</span>
+                            </label>
+
+                            <input
+                                type="email"
+                                id="contactEmail"
+                                name="email"
+                                class="form-control"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- SUBJECT -->
+                        <div class="form-group">
+
+                            <label>
+                                Subject
+                            </label>
+
+                            <select
+                                id="contactSubject"
+                                name="subject"
+                                class="form-control"
+                            >
+
+                                <option value="General Inquiry">
+                                    General Inquiry
+                                </option>
+
+                                <option value="Paper Submission">
+                                    Paper Submission
+                                </option>
+
+                                <option value="Registration">
+                                    Registration
+                                </option>
+
+                                <option value="Sponsorship">
+                                    Sponsorship
+                                </option>
+
+                                <option value="Accommodation">
+                                    Accommodation
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- MESSAGE -->
+                        <div class="form-group">
+
+                            <label>
+                                Message <span class="req">*</span>
+                            </label>
+
+                            <textarea
+                                id="contactMessage"
+                                name="message"
+                                class="form-control"
+                                rows="4"
+                                placeholder="Enter your message"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <!-- SUBMIT BUTTON -->
+                        <button
+                            type="submit"
+                            id="contactSubmitBtn"
+                            class="submit-form-btn"
+                        >
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+
+
+                        <!-- STATUS MESSAGE -->
+                        <div
+                            id="contactStatus"
+                            style="display:none;margin-top:15px;padding:12px 15px;border-radius:8px;font-size:0.9rem;line-height:1.5;"
+                        ></div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
+
+
+<!-- ==============================================================
+     NAPC 2027 CONTACT FORM - GOOGLE APPS SCRIPT
+============================================================== -->
+
+<script>
+
+const CONTACT_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbwwIJoKWec9ZnzaA_ujlqr6lhswZVkvRFX19uE_Nee-8SixtWIXAg6gFxhPjt5EddJEkw/exec";
+
+
+document.getElementById("contactForm").addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const form = this;
+
+    const submitBtn =
+        document.getElementById("contactSubmitBtn");
+
+    const status =
+        document.getElementById("contactStatus");
+
+
+    // ----------------------------------------------------------
+    // GET FORM VALUES
+    // ----------------------------------------------------------
+
+    const name =
+        document.getElementById("contactName").value.trim();
+
+    const email =
+        document.getElementById("contactEmail").value.trim();
+
+    const subject =
+        document.getElementById("contactSubject").value;
+
+    const message =
+        document.getElementById("contactMessage").value.trim();
+
+
+    // ----------------------------------------------------------
+    // VALIDATION
+    // ----------------------------------------------------------
+
+    if (!name || !email || !message) {
+
+        showContactStatus(
+            "Please fill in all required fields.",
+            false
+        );
+
+        return;
+    }
+
+
+    // ----------------------------------------------------------
+    // EMAIL VALIDATION
+    // ----------------------------------------------------------
+
+    const emailRegex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+
+        showContactStatus(
+            "Please enter a valid email address.",
+            false
+        );
+
+        return;
+    }
+
+
+    // ----------------------------------------------------------
+    // BUTTON - SENDING
+    // ----------------------------------------------------------
+
+    submitBtn.disabled = true;
+
+    submitBtn.innerHTML =
+        '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+
+    // ----------------------------------------------------------
+    // DATA
+    // ----------------------------------------------------------
+
+    const data = {
+
+        name: name,
+
+        email: email,
+
+        subject: subject,
+
+        message: message
+
+    };
+
+
+    // ----------------------------------------------------------
+    // SEND TO GOOGLE APPS SCRIPT
+    // ----------------------------------------------------------
+
+    try {
+
+        await fetch(
+            CONTACT_SCRIPT_URL,
+            {
+                method: "POST",
+
+                mode: "no-cors",
+
+                headers: {
+                    "Content-Type":
+                        "text/plain;charset=utf-8"
+                },
+
+                body: JSON.stringify(data)
+            }
+        );
+
+
+        // ------------------------------------------------------
+        // SUCCESS
+        // ------------------------------------------------------
+
+        showContactStatus(
+            "Thank you! Your message has been sent successfully. The NAPC 2027 organising team will get back to you shortly.",
+            true
+        );
+
+
+        // Clear form
+        form.reset();
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Contact Form Error:",
+            error
+        );
+
+        showContactStatus(
+            "Unable to send your message. Please try again or email napc2027@mae.iith.ac.in directly.",
+            false
+        );
+
+    }
+
+
+    // ----------------------------------------------------------
+    // RESTORE BUTTON
+    // ----------------------------------------------------------
+
+    submitBtn.disabled = false;
+
+    submitBtn.innerHTML =
+        '<i class="fas fa-paper-plane"></i> Send Message';
+
+});
+
+
+// =============================================================
+// STATUS MESSAGE
+// =============================================================
+
+function showContactStatus(message, success) {
+
+    const status =
+        document.getElementById("contactStatus");
+
+
+    status.style.display = "block";
+
+
+    if (success) {
+
+        status.style.background = "#dcfce7";
+
+        status.style.color = "#166534";
+
+        status.style.border =
+            "1px solid #86efac";
+
+        status.innerHTML =
+            '<i class="fas fa-check-circle"></i> ' +
+            message;
+
+    }
+
+    else {
+
+        status.style.background = "#fee2e2";
+
+        status.style.color = "#991b1b";
+
+        status.style.border =
+            "1px solid #fca5a5";
+
+        status.innerHTML =
+            '<i class="fas fa-exclamation-circle"></i> ' +
+            message;
+    }
+
+}
+
+</script>
+
 
 <!-- ============================================================
      FOOTER
