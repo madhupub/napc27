@@ -539,28 +539,176 @@
             font-size: 0.9rem; color: #15803d;
         }
 
-        /* ============================================================
-           PROGRAM ACCORDION
-        ============================================================ */
-        .prog-day {
-            border: 1px solid var(--border); border-radius: 8px;
-            margin-bottom: 12px; overflow: hidden;
-        }
-        .prog-day-hdr {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 14px 20px; background: #f8fafc; cursor: pointer;
-            border: none; width: 100%; text-align: left;
-            font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 700;
-            color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em;
-            transition: background 0.2s;
-        }
-        .prog-day-hdr:hover { background: var(--blue-lt); }
-        .prog-day-body { display: none; overflow-x: auto; }
-        .prog-day-body.open { display: block; }
-        .prog-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-        .prog-table th { background: var(--navy-mid); color: #fff; padding: 10px 16px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; }
-        .prog-table td { padding: 10px 16px; border-bottom: 1px solid #f1f5f9; }
-        .prog-table tr:hover td { background: #f0f9ff; }
+		/* ============================================================
+		   PROGRAM ACCORDION
+		============================================================ */
+		
+		.prog-day {
+		    border: 1px solid var(--border);
+		    border-radius: 8px;
+		    margin-bottom: 12px;
+		    overflow: hidden;
+		}
+		
+		.prog-day-hdr {
+		    display: flex;
+		    align-items: center;
+		    justify-content: space-between;
+		
+		    width: 100%;
+		    box-sizing: border-box;
+		
+		    padding: 14px 20px;
+		
+		    background: #f8fafc;
+		
+		    cursor: pointer;
+		
+		    border: none;
+		
+		    text-align: left;
+		
+		    font-family: 'Barlow Condensed', sans-serif;
+		    font-size: 1.05rem;
+		    font-weight: 700;
+		
+		    color: var(--navy);
+		
+		    text-transform: uppercase;
+		    letter-spacing: 0.04em;
+		
+		    transition: background 0.2s;
+		}
+		
+		.prog-day-hdr:hover {
+		    background: var(--blue-lt);
+		}
+		
+		.prog-day-body {
+		    display: none;
+		
+		    width: 100%;
+		
+		    overflow-x: auto;
+		}
+		
+		.prog-day-body.open {
+		    display: block;
+		}
+		
+		
+		/* ============================================================
+		   PROGRAM TABLE
+		============================================================ */
+		
+		.prog-table {
+		    width: 100%;
+		
+		    border-collapse: collapse;
+		    border-spacing: 0;
+		
+		    table-layout: fixed;
+		
+		    font-size: 0.85rem;
+		}
+		
+		
+		/* TABLE HEADER */
+		
+		.prog-table th {
+		    background: var(--navy-mid);
+		    color: #fff;
+		
+		    padding: 10px 16px;
+		
+		    font-family: 'Barlow Condensed', sans-serif;
+		
+		    font-size: 0.78rem;
+		
+		    letter-spacing: 0.06em;
+		
+		    text-transform: uppercase;
+		
+		    text-align: left;
+		
+		    vertical-align: middle;
+		
+		    box-sizing: border-box;
+		}
+		
+		
+		/* TABLE BODY */
+		
+		.prog-table td {
+		    padding: 10px 16px;
+		
+		    border-bottom: 1px solid #f1f5f9;
+		
+		    text-align: left;
+		
+		    vertical-align: middle;
+		
+		    box-sizing: border-box;
+		}
+		
+		
+		/* TIME COLUMN */
+		
+		.prog-table th:first-child,
+		.prog-table td:first-child {
+		    width: 180px;
+		
+		    white-space: nowrap;
+		
+		    text-align: left;
+		}
+		
+		
+		/* EVENT COLUMN */
+		
+		.prog-table th:nth-child(2),
+		.prog-table td:nth-child(2) {
+		    width: auto;
+		
+		    text-align: left;
+		}
+		
+		
+		/* HOVER */
+		
+		.prog-table tr:hover td {
+		    background: #f0f9ff;
+		}
+		
+		
+		/* ============================================================
+		   MOBILE
+		============================================================ */
+		
+		@media (max-width: 600px) {
+		
+		    .prog-day-hdr {
+		        padding: 12px 14px;
+		
+		        font-size: 0.92rem;
+		    }
+		
+		    .prog-table {
+		        min-width: 520px;
+		    }
+		
+		    .prog-table th,
+		    .prog-table td {
+		        padding: 9px 12px;
+		    }
+		
+		    .prog-table th:first-child,
+		    .prog-table td:first-child {
+		        width: 130px;
+		    }
+		
+		}
+
 
         /* ============================================================
            FOOTER
@@ -2012,125 +2160,6 @@ PAGE: IMPORTANT DATES
     </div>
 
 </div>
-
-
-<!-- ==============================================================
-     PROGRAM PAGE - TABLE ALIGNMENT CSS
-     Put this inside your main <style> section
-============================================================== -->
-
-<style>
-
-.prog-day {
-    width:100%;
-    margin-bottom:14px;
-}
-
-
-.prog-day-hdr {
-    width:100%;
-    min-height:52px;
-    padding:12px 16px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    gap:15px;
-
-    box-sizing:border-box;
-
-    text-align:left;
-
-    cursor:pointer;
-}
-
-
-.prog-day-hdr > span {
-    display:flex;
-    align-items:center;
-
-    flex-wrap:wrap;
-
-    gap:0;
-}
-
-
-.prog-day-hdr > i {
-    flex-shrink:0;
-}
-
-
-.prog-day-body {
-    width:100%;
-
-    box-sizing:border-box;
-
-    overflow-x:auto;
-}
-
-
-.prog-table {
-    width:100%;
-
-    border-collapse:collapse;
-
-    table-layout:fixed;
-}
-
-
-.prog-table th,
-.prog-table td {
-    box-sizing:border-box;
-
-    text-align:left;
-
-    vertical-align:middle;
-}
-
-
-.prog-table th:first-child,
-.prog-table td:first-child {
-    width:25%;
-
-    white-space:nowrap;
-
-    text-align:left;
-}
-
-
-.prog-table th:nth-child(2),
-.prog-table td:nth-child(2) {
-    width:75%;
-
-    text-align:left;
-}
-
-
-@media (max-width:600px) {
-
-    .prog-day-hdr {
-        padding:11px 12px;
-
-        font-size:0.9rem;
-    }
-
-
-    .prog-table th:first-child,
-    .prog-table td:first-child {
-        width:35%;
-    }
-
-
-    .prog-table th:nth-child(2),
-    .prog-table td:nth-child(2) {
-        width:65%;
-    }
-
-}
-
-</style>
-```
 
 
 <!-- ==============================================================
