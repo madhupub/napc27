@@ -292,45 +292,90 @@
         .home-col-mid   { padding: 0 20px; }
         .home-col-right { border-left: 1px solid var(--border); padding-left: 16px; }
 
-        /* ---- Left: Important news accordion ---- */
-        .news-header {
-            background: var(--navy); color: #fff;
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 1rem; font-weight: 700; letter-spacing: 0.08em;
-            text-transform: uppercase; padding: 10px 14px; margin-bottom: 6px;
-        }
-        .news-item { border-bottom: 1px solid var(--border); }
-        .news-toggle {
-            width: 100%; display: flex; justify-content: space-between; align-items: center;
-            padding: 10px 6px; background: none; border: none; cursor: pointer;
-            font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700;
-            color: var(--navy); text-align: left; text-transform: uppercase; letter-spacing: 0.03em;
-        }
-        .news-toggle:hover { background: var(--blue-lt); }
-        .news-body { display: none; padding: 8px 8px 12px; font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
-        .news-body.open { display: block; }
-        .important-dates-btn {
-            display: block; margin: 12px 0 4px;
-            background: #dc2626; color: #fff;
-            font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
-            font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase;
-            padding: 10px 14px; text-decoration: none;
-            display: flex; align-items: center; gap: 6px;
-        }
-        .dl-btn-row { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
-        .dl-btn {
-            display: flex; align-items: center; gap: 8px;
-            padding: 8px 12px; border-radius: 5px;
-            font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-            font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase;
-            border: none; cursor: pointer; text-decoration: none;
-            transition: opacity 0.2s;
-        }
-        .dl-btn:hover { opacity: 0.85; }
-        .dl-brochure   { background: #16a34a; color: #fff; }
-        .dl-cfp        { background: #dc2626; color: #fff; }
-        .dl-template   { background: #0891b2; color: #fff; }
-
+        /* ---- Left: Latest News scrolling section ---- */
+		.latest-news-header {
+		    background: var(--navy);
+		    color: #fff;
+		    font-family: 'Barlow Condensed', sans-serif;
+		    font-size: 1rem;
+		    font-weight: 700;
+		    letter-spacing: 0.08em;
+		    text-transform: uppercase;
+		    padding: 10px 14px;
+		    margin-bottom: 6px;
+		}
+		
+		.latest-news-box {
+		    height: 220px;
+		    overflow: hidden;
+		    position: relative;
+		    border: 1px solid var(--border);
+		    background: #fff;
+		    padding: 10px 12px;
+		}
+		
+		.latest-news-track {
+		    display: flex;
+		    flex-direction: column;
+		    gap: 14px;
+		    animation: news-scroll 18s linear infinite;
+		}
+		
+		.latest-news-box:hover .latest-news-track {
+		    animation-play-state: paused;
+		}
+		
+		.latest-news-item {
+		    font-size: 0.85rem;
+		    line-height: 1.6;
+		    color: var(--navy);
+		    padding-bottom: 10px;
+		    border-bottom: 1px solid var(--border);
+		}
+		
+		.latest-news-item strong {
+		    display: block;
+		    color: #dc2626;
+		    font-size: 0.9rem;
+		    margin-bottom: 3px;
+		}
+		
+		.latest-news-item a {
+		    color: var(--blue);
+		    font-weight: 700;
+		    text-decoration: none;
+		}
+		
+		.latest-news-item a:hover {
+		    text-decoration: underline;
+		}
+		
+		@keyframes news-scroll {
+		    0%   { transform: translateY(0); }
+		    100% { transform: translateY(-50%); }
+		}
+		
+		/* ---- Important Dates button ---- */
+		.important-dates-btn {
+		    display: flex;
+		    align-items: center;
+		    gap: 6px;
+		    margin: 12px 0 4px;
+		    background: #dc2626;
+		    color: #fff;
+		    font-family: 'Barlow Condensed', sans-serif;
+		    font-weight: 800;
+		    font-size: 1rem;
+		    letter-spacing: 0.1em;
+		    text-transform: uppercase;
+		    padding: 10px 14px;
+		    text-decoration: none;
+		    transition: background 0.2s;
+		}
+		
+		.important-dates-btn:hover {
+		    background: #b91c1c;
+		}
         /* ---- Left: Section label ---- */
         .left-label {
             font-family: 'Barlow Condensed', sans-serif;
@@ -939,56 +984,58 @@
         </span>
     </div>
 
-    <!-- 3-COLUMN LAYOUT -->
-    <div class="home-layout">
-
-        <!-- LEFT: News + Quick Downloads -->
-        <div class="home-col-left">
-            <div class="news-header">Important News</div>
-
-            <div class="news-item">
-                <button class="news-toggle" onclick="toggleNews(this)">
-                    Proceedings <i class="fas fa-chevron-down" style="font-size:0.7rem;transition:transform 0.2s;"></i>
-                </button>
-                <div class="news-body open">
-                    Proceedings of NAPC 2027 will be published after the conference. Selected papers will be considered for special journal issues. Details to follow.
-                </div>
-            </div>
-
-            <div class="news-item">
-                <button class="news-toggle" onclick="toggleNews(this)">
-                    Abstract Submission <i class="fas fa-chevron-down" style="font-size:0.7rem;transition:transform 0.2s;"></i>
-                </button>
-					 <div class="news-body">
-						Abstract submission portal is now Closed.
-					    Deadline extended from
-					    <s style="color:#94a3b8;">31 July 2026</s>
-					    to
-					    <s style="color:#94a3b8;">15 August 2026</s>
-					    and now further extended to
-					    <span style="color:#16a34a;">22 August 2026</span>.
-					    Submit via the Paper Submission page.
-					</div>
-            </div>
-
+		    <!-- LEFT: Latest News + Important Dates -->
+		<div class="home-col-left">
 		
-
-
-            <div class="news-item">
-                <button class="news-toggle" onclick="toggleNews(this)">
-                    Accommodation <i class="fas fa-chevron-down" style="font-size:0.7rem;transition:transform 0.2s;"></i>
-                </button>
-                <div class="news-body">
-                    Student hostel accommodation available on request. Non-student delegates may request Institute Guest House. <a href="#" onclick="showPage('accommodation');return false;" style="color:var(--blue);">Apply here →</a>
-                </div>
-            </div>
-
-            <!-- Important Dates shortcut -->
-            <a class="important-dates-btn" href="#" onclick="showPage('dates');return false;">
-                <i class="fas fa-caret-right"></i> IMPORTANT DATES
-            </a>
-
-        </div>
+		    <div class="latest-news-header">Latest News</div>
+		
+		    <div class="latest-news-box">
+		        <div class="latest-news-track">
+		
+		            <!-- Latest news items -->
+		            <div class="latest-news-item">
+		                <strong>Full Paper Review</strong>
+		                Full paper submission is closed. Review of submitted full papers is currently in progress.
+		            </div>
+		
+		            <div class="latest-news-item">
+		                <strong>Abstract Submission</strong>
+		                Abstract submission for NAPC 2027 is now closed.
+		            </div>
+		
+		            <div class="latest-news-item">
+		                <strong>Conference Proceedings</strong>
+		                Proceedings will be published after the conference. Selected papers will be considered for special journal issues.
+		            </div>
+		
+		            <!-- Duplicate items for seamless scrolling -->
+		            <div class="latest-news-item">
+		                <strong>Full Paper Review</strong>
+		                Full paper submission is closed. Review of submitted full papers is currently in progress.
+		            </div>
+		
+		            <div class="latest-news-item">
+		                <strong>Abstract Submission</strong>
+		                Abstract submission for NAPC 2027 is now closed.
+		            </div>
+		
+		            <div class="latest-news-item">
+		                <strong>Conference Proceedings</strong>
+		                Proceedings will be published after the conference. Selected papers will be considered for special journal issues.
+		            </div>
+		
+		        </div>
+		    </div>
+		
+		    <!-- Important Dates only -->
+		    <a class="important-dates-btn"
+		       href="#"
+		       onclick="showPage('dates'); return false;">
+		        <i class="fas fa-calendar-alt"></i>
+		        IMPORTANT DATES
+		    </a>
+		
+		</div>
 
         <!-- MIDDLE: Important Dates + Quick info -->
         <div class="home-col-mid">
