@@ -459,6 +459,96 @@
 }
 
 
+		
+/* ---- Homepage Sponsors ---- */
+.home-sponsors {
+    margin-top: 22px;
+}
+
+.sponsor-section {
+    margin-bottom: 20px;
+}
+
+.sponsor-heading {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.platinum-section .sponsor-heading {
+    background: #e5e7eb;
+    color: #374151;
+    border-left: 4px solid #9ca3af;
+}
+
+.silver-section .sponsor-heading {
+    background: #f1f5f9;
+    color: #475569;
+    border-left: 4px solid #94a3b8;
+}
+
+.sponsor-logo-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    padding: 14px;
+    margin-bottom: 10px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+    transition: box-shadow 0.2s ease,
+                transform 0.2s ease;
+}
+
+.sponsor-logo-card:hover {
+    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.10);
+    transform: translateY(-2px);
+}
+
+.sponsor-logo-card img {
+    display: block;
+    max-width: 100%;
+    max-height: 75px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.silver-sponsor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.silver-sponsor-grid .sponsor-logo-card {
+    min-width: 0;
+    min-height: 90px;
+    padding: 8px;
+}
+
+.silver-sponsor-grid .sponsor-logo-card img {
+    max-height: 65px;
+}
+
+@media (max-width: 960px) {
+    .home-sponsors {
+        margin-top: 20px;
+    }
+}
+
+
+		
+
 
         /* ---- Right: Key contacts ---- */
         .contact-person { margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
@@ -1182,6 +1272,46 @@
         <i class="fas fa-calendar-alt"></i>
         IMPORTANT DATES
     </a>
+
+	
+	<!-- SPONSORS -->
+	<div class="home-sponsors">
+	
+	    <!-- Platinum Sponsor -->
+	    <div class="sponsor-section platinum-section">
+	        <div class="sponsor-heading">
+	            <i class="fas fa-award"></i>
+	            Platinum Sponsor
+	        </div>
+	
+	        <div class="sponsor-logo-card">
+	            <img src="files/platinum-sponsor.png"
+	                 alt="Platinum Sponsor Logo">
+	        </div>
+	    </div>
+	
+	    <!-- Silver Sponsors -->
+	    <div class="sponsor-section silver-section">
+	        <div class="sponsor-heading">
+	            <i class="fas fa-medal"></i>
+	            Silver Sponsors
+	        </div>
+	
+	        <div class="silver-sponsor-grid">
+	            <div class="sponsor-logo-card">
+	                <img src="files/silver-sponsor-1.png"
+	                     alt="Silver Sponsor 1 Logo">
+	            </div>
+	
+	            <div class="sponsor-logo-card">
+	                <img src="files/silver-sponsor-2.png"
+	                     alt="Silver Sponsor 2 Logo">
+	            </div>
+	        </div>
+	    </div>
+	
+	</div>
+
 
 </div>
 
