@@ -484,9 +484,44 @@
 }
 
 .platinum-section .sponsor-heading {
-    background: #e5e7eb;
-    color: #374151;
-    border-left: 4px solid #9ca3af;
+    background: linear-gradient(135deg, #102b62, #1746a2, #102b62);
+    color: #ffffff;
+    border-left: 4px solid #7db7ff;
+    box-shadow: 0 0 12px rgba(37, 99, 235, 0.22);
+    letter-spacing: 0.08em;
+}
+
+.platinum-section .sponsor-heading i {
+    color: #a9d2ff;
+    filter: drop-shadow(0 0 5px rgba(125, 183, 255, 0.65));
+}
+
+.platinum-section .sponsor-logo-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, #ffffff, #f0f6ff);
+    border: 1px solid #7baaff;
+    border-radius: 9px;
+    box-shadow:
+        0 0 5px rgba(37, 99, 235, 0.18),
+        0 0 14px rgba(37, 99, 235, 0.14),
+        inset 0 0 12px rgba(59, 130, 246, 0.05);
+    transition: border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.3s ease;
+}
+
+.platinum-section .sponsor-logo-card:hover {
+    border-color: #2563eb;
+    box-shadow:
+        0 0 8px rgba(37, 99, 235, 0.38),
+        0 0 22px rgba(37, 99, 235, 0.28),
+        inset 0 0 16px rgba(59, 130, 246, 0.08);
+    transform: translateY(-2px);
+}
+
+.platinum-section .sponsor-logo-card img {
+    max-height: 82px;
 }
 
 .silver-section .sponsor-heading {
